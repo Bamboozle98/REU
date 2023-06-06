@@ -32,6 +32,7 @@ data_augmentation = Sequential(
 )
 
 x = Flatten()(vgg.output)
+x = Dense(512, activation='relu')(x)
 prediction = Dense(112, activation='softmax')(x)
 model = keras.Model(inputs=vgg.input, outputs=prediction)
 
@@ -50,7 +51,8 @@ model.fit(train_data, epochs=20, validation_data=test_data, batch_size=32, callb
 # the batchnorm layers will not update their batch statistics.
 # This prevents the batchnorm layers from undoing all the training
 # we've done so far.
-vgg.trainable = True
+for layer in model.layers[:5]:
+    layer.trainable = True
 model.summary()
 
 model.compile(
