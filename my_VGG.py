@@ -17,13 +17,13 @@ ts_data = ImageDataGenerator()
 test_data = ts_data.flow_from_directory(directory="E:/My Data v.1/split_data/val", target_size=(224, 224))
 
 
-base_model = keras.applications.VGG16(
+vgg = keras.applications.VGG16(
     weights="imagenet",  # Load weights pre-trained on ImageNet.
     input_shape=(224, 224, 3),
     include_top=False,
     classifier_activation='softmax'
 )  # Do not include the ImageNet classifier at the top.
-base_model.trainable = False
+vgg.trainable = False
 
 data_augmentation = Sequential(
     [RandomFlip("horizontal"),
@@ -31,13 +31,9 @@ data_augmentation = Sequential(
      RandomZoom(0.1)]
 )
 
-inputs = keras.Input(shape=(224, 224, 3))
-# The base model contains batchnorm layers. We want to keep them in inference mode
-# when we unfreeze the base model for fine-tuning, so we make sure that the
-# base_model is running in inference mode here.
-x = data_augmentation(inputs)
-outputs = keras.layers.Dense(112, activation='softmax')(x)
-model = keras.Model(inputs, outputs)
+x = Flatten()(vgg.output)
+prediction = Dense(112, activation='softmax')(x)
+model = keras.Model(inputs=vgg.input, outputs=prediction)
 
 model.summary()
 
@@ -54,7 +50,7 @@ model.fit(train_data, epochs=20, validation_data=test_data, batch_size=32, callb
 # the batchnorm layers will not update their batch statistics.
 # This prevents the batchnorm layers from undoing all the training
 # we've done so far.
-base_model.trainable = True
+vgg.trainable = True
 model.summary()
 
 model.compile(
