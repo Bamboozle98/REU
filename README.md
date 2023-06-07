@@ -2,9 +2,9 @@
 Collection of ML models and files relevant to research in the REU program at East Carolina University. 
 
 
-All development was done on Windows 10 machines. Models were run in a miniconda enviornment and trained on a Desktop GEFORCE RTX 3070 TI. All models were run with the PyCharm IDE.
+All development was done on Windows 10 machines. Models were run in a miniconda environment and trained on a Desktop GEFORCE RTX 3070 TI. All models were run with the PyCharm IDE.
 
-# Specifications for the Miniconda enviornment
+# Specifications for the Miniconda environment
 Python==3.9  
 Tensorflow==2.10  
 cudatoolkit=11.2  
@@ -12,20 +12,20 @@ cudnn=8.1.0
 These version installations will be referenced in the miniconda setup instructions. 
 
 # Instructions for Miniconda Setup
-Before you do anything, you need the Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017, and 2019. This download can be found at (https://visualstudio.microsoft.com/vs/community/). Note that you do not need any of the additional packages offered in the Visuall C++ Redistributable install, just install the barebones package. You need this redistributable because some software packages used in this setup use the C++ language. 
+Before you do anything, you need the Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017, and 2019. This download can be found at (https://visualstudio.microsoft.com/vs/community/). Note that you do not need any of the additional packages offered in the Visual C++ Redistributable install, just install the barebones package. You need this redistributable because some software packages used in this setup use the C++ language. 
 
 Download miniconda (Miniconda3), conda version 23.3.1 (latest as of 6/6/2023). Check your version with 'conda -V' within the 'Anaconda Prompt (miniconda3)' powershell. 
 Open the miniconda powershell by searching in the windows search bar for 'Anaconda Prompt (miniconda3).'
-Once open, input the following command to begin creating your python enviornment:
+Once open, input the following command to begin creating your python environment:
                               
                        conda create --name #### python==3.9
                       
-where '####' represents a name that you can assign to the python enviornment you are creating. 
-After your enviornment is created, run the following command to activate it within your powershell:
+where '####' represents a name that you can assign to the python environment you are creating. 
+After your environment is created, run the following command to activate it within your powershell:
 
                        conda activate ####
                        
-Once the enviornment is running, run the following command to install CUDA and the cuDNN tool into the enviornment:
+Once the environment is running, run the following command to install CUDA and the cuDNN tool into the environment:
 
                        conda install -c conda-forge cudatoolkit=11.2 cudnn=8.1.0
                        
@@ -34,7 +34,7 @@ Then you need to install TensorFlow with the following command:
 
                        pip install tensorflow==2.10
                        
-You should now be all set to start coding within this enviorment and use python commands to refer tensorflow to your GPU as opposed to your CPU.
+You should now be all set to start coding within this enviroment and use python commands to refer tensorflow to your GPU as opposed to your CPU.
 You can check to see if tensorflow recognizes your GPU with the following python script:
 
                        print(tf.config.list_physical_devices('GPU'))
