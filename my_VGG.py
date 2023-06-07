@@ -40,7 +40,7 @@ model = keras.Model(inputs=vgg.input, outputs=prediction)
 
 model.summary()
 
-callbacks = [EarlyStopping(monitor='val_accuracy', patience=5, verbose=0)]
+callbacks = [EarlyStopping(monitor='val_categorical_accuracy', patience=5, verbose=0)]
 
 with tf.device('GPU:0'):
     model.compile(optimizer=keras.optimizers.Adam(0.001),
