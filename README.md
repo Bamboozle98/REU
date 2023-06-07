@@ -43,7 +43,7 @@ Which, if your setup worked, will print something like this:
 
                        [PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')]
       
-Output will vary depending on your hardware setup, but as long as it is printing a recognized device, you should be good. Note that the above to statements are directly from python script so you will either have to put them in .py file and run the file through the miniconda powershell, or run them directly in the miniconda powershell with 'python -c print(tf.config.list_physical_devices('GPU'))'.
+Output will vary depending on your hardware setup, but as long as it is printing a recognized device, you should be good. Note that the above two statements are directly from python script so you will either have to put them in .py file and run the file through the miniconda powershell, or run them directly in the miniconda powershell with 'python -c print(tf.config.list_physical_devices('GPU'))'.
 
 Once you know that your GPU is recognized by TensorFlow, you can tell your script to use the GPU for certain calculations. For instance:
 
