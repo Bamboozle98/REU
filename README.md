@@ -15,7 +15,7 @@ These version installations will be referenced in the miniconda setup instructio
 Before you do anything, you need the Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017, and 2019. This download can be found at (https://visualstudio.microsoft.com/vs/community/). Note that you do not need any of the additional packages offered in the Visual C++ Redistributable install, just install the barebones package. You need this redistributable because some software packages used in this setup use the C++ language. 
 
 Download miniconda (Miniconda3), conda version 23.3.1 (latest as of 6/6/2023). Check your version with 'conda -V' within the 'Anaconda Prompt (miniconda3)' powershell. 
-Open the miniconda powershell by searching in the windows search bar for 'Anaconda Prompt (miniconda3).'
+To open the miniconda powershell by searching in the windows search bar for 'Anaconda Prompt (miniconda3).'
 Once open, input the following command to begin creating your python environment:
                               
                        conda create --name #### python==3.9
