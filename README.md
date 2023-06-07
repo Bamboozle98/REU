@@ -5,10 +5,10 @@ Collection of ML models and files relevant to research in the REU program at Eas
 All development was done on Windows 10 machines. Models were run in a miniconda enviornment and trained on a Desktop GEFORCE RTX 3070 TI. All models were run with the PyCharm IDE.
 
 # Specifications for the Miniconda enviornment
-Python==3.9
-Tensorflow==2.10
-cudatoolkit=11.2
-cudnn=8.1.0
+Python==3.9  
+Tensorflow==2.10  
+cudatoolkit=11.2  
+cudnn=8.1.0  
 These version installations will be referenced in the miniconda setup instructions. 
 
 # Instructions for Miniconda Setup
@@ -54,5 +54,5 @@ Once you know that your GPU is recognized by TensorFlow, you can tell your scrip
                           model.fit(train_data, epochs=20, validation_data=test_data, batch_size=32, callbacks=callbacks)
                           
 Every line within the 'with tf.device('GPU:0'):' command is being calculated by the GPU. 
-Here is a link to a guide on setting up GPU support with TensorFlow.
+Here is a link to a guide on setting up GPU support with TensorFlow.  
 https://www.tensorflow.org/install/pip
