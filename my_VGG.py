@@ -9,12 +9,14 @@ from keras.callbacks import ReduceLROnPlateau, EarlyStopping
 from keras.applications import VGG19, Xception, VGG16
 from keras.layers import Input, Flatten, Dense, BatchNormalization, Activation, Dropout, GlobalAveragePooling2D, \
     MaxPooling2D, RandomFlip, RandomZoom, RandomRotation
+import scipy
 
+print(tf.config.list_physical_devices('GPU'))
 
 tr_data = ImageDataGenerator()
-train_data = tr_data.flow_from_directory(directory="E:/My Data v.1/split_data/train", target_size=(224, 224))
+train_data = tr_data.flow_from_directory(directory="G:/My Data v.1/split_data/train", target_size=(224, 224))
 ts_data = ImageDataGenerator()
-test_data = ts_data.flow_from_directory(directory="E:/My Data v.1/split_data/val", target_size=(224, 224))
+test_data = ts_data.flow_from_directory(directory="G:/My Data v.1/split_data/val", target_size=(224, 224))
 
 
 vgg = keras.applications.VGG16(
@@ -40,10 +42,11 @@ model.summary()
 
 callbacks = [EarlyStopping(monitor='val_accuracy', patience=5, verbose=0)]
 
-model.compile(optimizer=keras.optimizers.Adam(0.001),
-              loss=tf.keras.losses.CategoricalCrossentropy(),
-              metrics=[tf.keras.metrics.CategoricalAccuracy()])
-model.fit(train_data, epochs=20, validation_data=test_data, batch_size=32, callbacks=callbacks)
+with tf.device('GPU:0'):
+    model.compile(optimizer=keras.optimizers.Adam(0.001),
+                  loss=tf.keras.losses.CategoricalCrossentropy(),
+                  metrics=[tf.keras.metrics.CategoricalAccuracy()])
+    model.fit(train_data, epochs=20, validation_data=test_data, batch_size=32, callbacks=callbacks)
 
 
 # Unfreeze the base_model. Note that it keeps running in inference mode
@@ -55,11 +58,12 @@ for layer in model.layers[:5]:
     layer.trainable = True
 model.summary()
 
-model.compile(
-    optimizer=keras.optimizers.Adam(1e-5),  # Low learning rate
-    loss=tf.keras.losses.CategoricalCrossentropy(),
-    metrics=[tf.keras.metrics.CategoricalAccuracy()]
-)
+with tf.device('GPU:0'):
+    model.compile(
+        optimizer=keras.optimizers.Adam(1e-5),  # Low learning rate
+        loss=tf.keras.losses.CategoricalCrossentropy(),
+        metrics=[tf.keras.metrics.CategoricalAccuracy()]
+    )
 
-epochs = 10
-model.fit(train_data, epochs=epochs, validation_data=test_data, batch_size=32, callbacks=callbacks)
+    epochs = 10
+    model.fit(train_data, epochs=epochs, validation_data=test_data, batch_size=32, callbacks=callbacks)
