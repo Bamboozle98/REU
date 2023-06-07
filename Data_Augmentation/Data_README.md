@@ -24,8 +24,10 @@ Their dataset is comprised of almost half a million images that they scraped fro
 
 After I modified the data directory, I ran the 'data_split.py' file on my new modified theropod folder. This script split the available data into a training set, a validation set, and a testing set with the ratios 80%, 10%, and 10% respectivley. These are the data files I reference for data generation within my models. For instace:
 
+
 tr_data = ImageDataGenerator()
 train_data = tr_data.flow_from_directory(directory="E:/My Data v.3/split_data/train",
                                          target_size=(224, 224))
+                                         
                                          
 is an example of how I load these datasets into my models. I will link the FID [here](https://zenodo.org/record/6333970).
