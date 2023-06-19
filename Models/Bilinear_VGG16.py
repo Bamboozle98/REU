@@ -17,13 +17,14 @@ from keras.applications.resnet import preprocess_input, decode_predictions
 from keras.preprocessing import image
 import keras.initializers
 from keras.initializers import generic_utils
+from matplotlib import pyplot
+from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout
+import sklearn
+from sklearn.metrics import f1_score, precision_score, recall_score, accuracy_score
 
 physical_devices = tf.config.experimental.list_physical_devices('GPU')
 if len(physical_devices) > 0:
-   tf.config.experimental.set_memory_growth(physical_devices[0], True)
-
-from matplotlib import pyplot
-from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout
+    tf.config.experimental.set_memory_growth(physical_devices[0], True)
 
 
 """
@@ -35,9 +36,12 @@ Assuming both have same size and shape
 x -> [ (size_minibatch, total_pixels, size_filter), (size_minibatch, total_pixels, size_filter) ]
 
 """
+
+
 def dot_product(x):
 
-    return keras.backend.batch_dot(x[0], x[1], axes=[1,1]) / x[0].get_shape().as_list()[1]
+    return keras.backend.batch_dot(x[0], x[1], axes=[1, 1]) / x[0].get_shape().as_list()[1]
+
 
 """
 Calculate signed square root
@@ -47,9 +51,11 @@ x -> a tensor
 
 """
 
+
 def signed_sqrt(x):
 
     return keras.backend.sign(x) * keras.backend.sqrt(keras.backend.abs(x) + 1e-9)
+
 
 """
 Calculate L2-norm
@@ -58,6 +64,7 @@ Calculate L2-norm
 x -> a tensor
 
 """
+
 
 def L2_norm(x, axis=-1):
 
@@ -71,14 +78,13 @@ def L2_norm(x, axis=-1):
     Here both bi-linear branches have same shape.
 
     z -> output shape tuple
-    x -> outpur og VGG tensor
+    x -> output og VGG tensor
     y -> copy of x as we modify x, we use x, y for outer product.
 
 '''
 
 
 def build_model():
-    tensor_input = keras.layers.Input(shape=[150, 150, 3])
 
     #   load pre-trained model
     tensor_input = keras.layers.Input(shape=[150, 150, 3])
@@ -107,7 +113,7 @@ def build_model():
     print(model_detector.summary())
 
     print(model2.summary())
-    #   rehape to (batch_size, total_pixels, filter_size)
+    #   reshape to (batch_size, total_pixels, filter_size)
     x = keras.layers.Reshape([z[1] * z[2], z[-1]])(x)
 
     y = keras.layers.Reshape([z[1] * z[2], z[-1]])(y)
@@ -115,7 +121,7 @@ def build_model():
     #   outer products of x, y
     x = keras.layers.Lambda(dot_product)([x, y])
 
-    #   rehape to (batch_size, filter_size_vgg_last_layer*filter_vgg_last_layer)
+    #   reshape to (batch_size, filter_size_vgg_last_layer*filter_vgg_last_layer)
     x = keras.layers.Reshape([z[-1] * z[-1]])(x)
 
     #   signed_sqrt
@@ -128,7 +134,7 @@ def build_model():
 
     initializer = tf.keras.initializers.GlorotNormal()
 
-    x = keras.layers.Dense(units=258,
+    x = keras.layers.Dense(units=103,
                            kernel_regularizer=keras.regularizers.l2(0.0),
                            kernel_initializer=initializer)(x)
 
@@ -145,7 +151,7 @@ def build_model():
                                decay=0.0,
                                momentum=0.9)
 
-    model_bilinear.compile(loss="categorical_crossentropy",
+    model_bilinear.compile(loss=tf.keras.losses.CategoricalCrossentropy(),
                            optimizer=sgd,
                            metrics=["categorical_accuracy"])
 
@@ -165,9 +171,9 @@ def train_model(epochs):
         workers=3,
         verbose=1
     )
-
+# Changed hist.history part of concatenation to a string value using typecast.
     model.save_weights(
-        "./bilinear_weights/val_acc_" + hist.history['val_categorical_accuracy'][-1] + "_" + str(epochs) + ".h5")
+        "E:/My_Models" + str(hist.history['val_categorical_accuracy'][-1]) + "_" + str(epochs) + ".h5")
 
     return hist
 
@@ -183,21 +189,21 @@ train_datagen = image.ImageDataGenerator(
     horizontal_flip=True)
 test_datagen = image.ImageDataGenerator(rescale=1. / 255)
 train_generator = train_datagen.flow_from_directory(
-    '../nut_snacks/dataset_split/train',
+    "E:/My Data v.3/split_data/train",
     target_size=(150, 150),
     color_mode="rgb",
     batch_size=32,
     subset='training',
     class_mode='categorical')
 val_generator = test_datagen.flow_from_directory(
-    '../nut_snacks/dataset_split/val',
+    "E:/My Data v.3/split_data/val",
     target_size=(150, 150),
     color_mode="rgb",
     batch_size=32,
     subset='training',
     class_mode='categorical')
 test_generator = test_datagen.flow_from_directory(
-    '../nut_snacks/dataset_split/test',
+    "E:/My Data v.3/split_data/test",
     target_size=(150, 150),
     color_mode="rgb",
     shuffle=False,
@@ -205,7 +211,7 @@ test_generator = test_datagen.flow_from_directory(
     batch_size=1)
 
 
-hist =train_model(epochs=20)
+hist = train_model(epochs=20)
 
 
 for layer in model.layers:
@@ -213,13 +219,13 @@ for layer in model.layers:
 
 sgd = keras.optimizers.SGD(lr=1e-3, decay=1e-9, momentum=0.9)
 
-model.compile(loss="categorical_crossentropy", optimizer=sgd, metrics=["categorical_accuracy"])
-hist =train_model(epochs=30)
+model.compile(loss=tf.keras.losses.CategoricalCrossentropy(), optimizer=sgd, metrics=["categorical_accuracy"])
+hist = train_model(epochs=30)
 
-model.save('./model_bilin')
+model.save('E:/My_Models/')
 
-model2 = keras.models.load_model('./model_bilin')
-preds = model2.predict_generator(test_generator, verbose=1)
+model2 = keras.models.load_model('E:/My_Models/')
+preds = model2.predict(test_generator, verbose=1)
 
 preds_cls_idx = preds.argmax(axis=-1)
 
@@ -228,25 +234,25 @@ idx_to_cls = {v: k for k, v in train_generator.class_indices.items()}
 preds_cls = np.vectorize(idx_to_cls.get)(preds_cls_idx)
 
 
-true_lables = []
-true_lables_upc_idx_map = {}
-true_lables_img = {}
-upc_list = os.listdir('../nut_snacks/dataset_split/test/')
+true_labels = []
+true_labels_upc_idx_map = {}
+true_labels_img = {}
+upc_list = os.listdir("E:/My Data v.3/split_data/test/")
 idx = 0
 for upc in upc_list:
-    img_folder = '../nut_snacks/dataset_split/test/' + upc +'/'
+    img_folder = "E:/My Data v.3/split_data/test/" + upc + '/'
     img_list = os.listdir(img_folder)
     for img in img_list:
-        true_lables.append(upc)
-        true_lables_upc_idx_map[idx] = upc
-        true_lables_img[idx] = img
+        true_labels.append(upc)
+        true_labels_upc_idx_map[idx] = upc
+        true_labels_img[idx] = img
         idx += 1
-len(true_lables)
+len(true_labels)
 
 wrong_predicted = []
 count = 0
 for idx in range(0, len(preds_cls)):
-    if preds_cls[idx] != true_lables[idx]:
+    if preds_cls[idx] != true_labels[idx]:
         wrong_predicted.append(idx)
     else:
         count += 1
@@ -259,33 +265,31 @@ accuracy = count/len(preds_cls)
 
 wrong_pred_upc = set()
 for label in wrong_predicted:
-    wrong_pred_upc.add(true_lables_upc_idx_map[label])
+    wrong_pred_upc.add(true_labels_upc_idx_map[label])
 len(wrong_pred_upc), len(wrong_predicted)
 
 images_pred_wrong = []
 for label in wrong_predicted:
-    images_pred_wrong.append(true_lables_img[label])
+    images_pred_wrong.append(true_labels_img[label])
 len(images_pred_wrong)
 
-d={}
-for i in range(0 ,len(images_pred_wrong)):
+d = {}
+for i in range(0, len(images_pred_wrong)):
     if preds_cls[i] not in d.keys():
         d[preds_cls[i]] = 1
     else:
         d[preds_cls[i]] += 1
-d
 
-for i in range(0 ,len(images_pred_wrong)):
-    img ='../nut_snacks/dataset_split/test/' + true_lables_upc_idx_map[wrong_predicted[i]] + '/' + images_pred_wrong[i]
+
+for i in range(0, len(images_pred_wrong)):
+    img = 'E:/My Data v.3/split_data/test' + true_labels_upc_idx_map[wrong_predicted[i]] + '/' + images_pred_wrong[i]
     print(img, preds_cls[i])
 
-import sklearn
-from sklearn.metrics import f1_score,precision_score,recall_score,accuracy_score
 
-f1 = f1_score(true_lables, preds_cls, average='weighted')
-precision = precision_score(true_lables, preds_cls, average='weighted')
-recall  = recall_score(true_lables, preds_cls, average='weighted')
-accuracy = accuracy_score(true_lables, preds_cls)
+f1 = f1_score(true_labels, preds_cls, average='weighted')
+precision = precision_score(true_labels, preds_cls, average='weighted')
+recall = recall_score(true_labels, preds_cls, average='weighted')
+accuracy = accuracy_score(true_labels, preds_cls)
 print("f1 :", f1)
 print("precision :", precision)
 print("recall :", recall)
