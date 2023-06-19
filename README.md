@@ -2,7 +2,7 @@
 Collection of ML models and files relevant to research in the REU program at East Carolina University. 
 
 
-All development was done on Windows 10 machines. Models were run in a miniconda environment and trained on a Desktop GEFORCE RTX 3070 TI. All models were run with the PyCharm IDE.
+All development was done on Windows 10 machines. Models were run in a miniconda environment and trained on a Desktop GEFORCE RTX 3070 TI. All code was executed with the PyCharm IDE.
 
 # Specifications for the Miniconda environment
 Python==3.9  
