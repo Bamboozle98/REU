@@ -62,4 +62,5 @@
     optimizer for unfrozen round of training
     sgd = keras.optimizers.SGD(lr=1e-3, decay=1e-9, momentum=0.9)
 ### Results
-    
+    loss: 1.8308 - categorical_accuracy: 0.5593 - val_loss: 2.7793 - val_categorical_accuracy: 0.4428 
+    Through up an error on the last epoch. Final Train and Test set results.
