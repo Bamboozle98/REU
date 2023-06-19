@@ -15,7 +15,7 @@
     Adam optimizer for last two layers and top 5 layers of VGG16 = 1e-5
     Batch size = 32
 ### Results
-    
+    loss: 2.5218 - categorical_accuracy: 0.4452 - val_loss: 4.8453 - val_categorical_accuracy: 0.3374
 ## Xception
 ### Parameters for model import    
     weights="imagenet",
