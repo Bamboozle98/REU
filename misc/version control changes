@@ -1,0 +1,33 @@
+PS C:\Users\cmccu\PycharmProjects\REU> pip install -r C:\Users\cmccu\PycharmProjects\REU\REU\data_collection\Google-Image-Scraper-master\Google-Image-Scraper-master\requirements.txt
+Collecting selenium==3.141.0
+  Downloading selenium-3.141.0-py2.py3-none-any.whl (904 kB)
+     ---------------------------------------- 904.6/904.6 kB 5.2 MB/s eta 0:00:00
+Collecting requests==2.25.1
+  Downloading requests-2.25.1-py2.py3-none-any.whl (61 kB)
+     ---------------------------------------- 61.2/61.2 kB 3.2 MB/s eta 0:00:00
+Collecting pillow==9.0.1
+  Using cached Pillow-9.0.1-cp39-cp39-win_amd64.whl (3.2 MB)
+Requirement already satisfied: urllib3 in c:\users\cmccu\miniconda3\envs\dino_2\lib\site-packages (from selenium==3.141.0->-r C:\Users\cmccu\PycharmProjects\REU\REU\data_collection\Google
+-Image-Scraper-master\Google-Image-Scraper-master\requirements.txt (line 1)) (1.26.16)
+Collecting chardet<5,>=3.0.2
+  Downloading chardet-4.0.0-py2.py3-none-any.whl (178 kB)
+     ---------------------------------------- 178.7/178.7 kB ? eta 0:00:00
+Requirement already satisfied: certifi>=2017.4.17 in c:\users\cmccu\miniconda3\envs\dino_2\lib\site-packages (from requests==2.25.1->-r C:\Users\cmccu\PycharmProjects\REU\REU\data_collect
+ion\Google-Image-Scraper-master\Google-Image-Scraper-master\requirements.txt (line 2)) (2023.5.7)
+Collecting idna<3,>=2.5
+  Downloading idna-2.10-py2.py3-none-any.whl (58 kB)
+     ---------------------------------------- 58.8/58.8 kB 3.2 MB/s eta 0:00:00
+Installing collected packages: selenium, pillow, idna, chardet, requests
+  Attempting uninstall: pillow
+    Found existing installation: Pillow 9.5.0
+    Uninstalling Pillow-9.5.0:
+      Successfully uninstalled Pillow-9.5.0
+  Attempting uninstall: idna
+    Found existing installation: idna 3.4
+    Uninstalling idna-3.4:
+      Successfully uninstalled idna-3.4
+  Attempting uninstall: requests
+    Found existing installation: requests 2.31.0
+    Uninstalling requests-2.31.0:
+      Successfully uninstalled requests-2.31.0
+Successfully installed chardet-4.0.0 idna-2.10 pillow-9.0.1 requests-2.29.0 selenium-3.141.0
