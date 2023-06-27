@@ -104,7 +104,27 @@ Zhuchengtyrannus skeleton-85
 Zupaysaurus skeleton-45
 Plan on dropping classes with low image count and supplement remaining classes with images scraped from the web. 
 
+Changes Made to Dataset
 Moved 'Tyrannosaurus rex fossil into 'Tyrannosaurus fossil', renamed 'Tyrannosaurus fossil' to 'Tyrannosaurus skeleton'.
+Removed the following classes due to low image count
+Agrosaurus skeleton
+Ajancingenia skeleton
+Anserimimus skeleton
+Avimimus skeleton
+Genyodectes skeleton
+Hagryphus skeleton
+Harpymimus skeleton
+Ilokelesia skeleton
+Khaan skeleton
+Ligabueino skeleton
+Muraenosaurus fossil
+Piatnitzkysaurus skeleton
+Sinovenator skeleton
+Tianyuraptor skeleton
+Xiaotingia skeleton
+Xunmenglong skeleton
+Zupaysaurus skeleton
+
 
 List of Geneses to consider for dropping post augmentation.
 Caudipteryx
