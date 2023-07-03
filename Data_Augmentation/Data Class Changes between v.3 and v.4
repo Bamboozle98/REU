@@ -125,6 +125,7 @@ Xiaotingia skeleton
 Xunmenglong skeleton
 Zupaysaurus skeleton
 
+Total image and class count after image supplementation and copy obliteration is 16,458 across 81 classes.
 
 List of Geneses to consider for dropping post augmentation.
 Caudipteryx
@@ -134,17 +135,17 @@ Dromiceiomimus -Very similar to ornithomimus to the point where not all experts 
 Erlikosaurus -Theriznosaurid very similar to Theriznosauris, Falcarius, and Segnosaurus. Consider dropping if two much overlap with images.   
 Falcarius -Theriznosaurid very similar to Theriznosauris, Erlikosaurus, and Segnosaurus. Consider dropping if two much overlap with images.
 Fukuiraptor -Many images of the same fossil skeleton. Consider dropping due to lack of skeleton image variety. 
-Gorgosaurus -Ancestor of Tyrannosaurs, very similar skeletal structure that makes manual discertion difficult. Key difference is size and I'm unsure if the model will be able to discern relative size. If there is a lot of image overlap with Tyrannosaurus, consider dropping. 
+*Gorgosaurus -Ancestor of Tyrannosaurs, very similar skeletal structure that makes manual discertion difficult. Key difference is size and I'm unsure if the model will be able to discern relative size. If there is a lot of image overlap with Tyrannosaurus, consider dropping. 
 Halszkaraptor -All images are either similar paleoart or different images of the same fossil. Consider dropping due to lakc of skeleton image variety. 
 Jinfengopteryx -Many images of the same fossil skeleton. Many images labeled for other small theropods. Difficult to manually discern between skeletons. Consider dropping. 
 Juravenator -Many images of the same fossil skeleton. Consider dropping due to lack of skeleton image variety.
-Lythronax -Ancestor of Tyrannosaurs, very similar skeletal structure that makes manual discertion difficult. Key difference is size and I'm unsure if the model will be able to discern relative size. If there is a lot of image overlap with Tyrannosaurus, consider dropping.
+*Lythronax -Ancestor of Tyrannosaurs, very similar skeletal structure that makes manual discertion difficult. Key difference is size and I'm unsure if the model will be able to discern relative size. If there is a lot of image overlap with Tyrannosaurus, consider dropping.
 
 Mapusaurus -Close relative of Gigantosaurus with potential image overlap. Consider dropping. 
 Marshosaurus -Many images of the same fossil skeleton. Consider dropping due to lack of skeleton image variety.
 Megaraptor -May have overlap with some other theropods. Revisit for consideration.
 Metriacanthosaurus -Very low image count, unsure about accuracies of the images available. Very few fossil remains ever found. Consider dropping.
-Ornithomimus -Could be very similar to struthomimus, consider dropping.
+*Ornithomimus -Could be very similar to struthomimus, consider dropping.
 Pelelcanimimus -Low fossil count, overlap with other 'mimus'. Consider dropping
 Procertosaurus -One fossil of the lower half of the skull. Consider dropping due to low image variety. 
 Procompsognathus -Low image and fossil count.
@@ -158,11 +159,21 @@ Sauronithoides -Low image count
 Scipionyx -Low image count, but many confirmed, detailed images. 
 Siamotyrannus -Low image and fossil count. 
 Sinocalliopteryx -Low image and fossil count. Though a near complete skeleton has been found. 
-Sinosauropteryx -Due to pigment preservation, paleoart is very consistent. Useful for classification in addition to fossils. 
-Tarbosaurus- Plenty of good fossil images, but genus is so close to Tyrannosaurus that I may not be able to discern the two and accurately classify them.
+*Sinosauropteryx -Due to pigment preservation, paleoart is very consistent. Useful for classification in addition to fossils. 
+*Tarbosaurus- Plenty of good fossil images, but genus is so close to Tyrannosaurus that I may not be able to discern the two and accurately classify them.
 Troodon -Not considered a valid genus, only confirmed troodon fossils were teeth. Due to so much speculation about the genus, there exists a fairly consistent interpretation of the dinosaur. Could be a valid class for the model. 
-Tyrannotitan -Image count possibly low. Consider for dropping.
+*Tyrannotitan -Image count possibly low. Consider for dropping.
 Velocisaurus -Very low image and fossil count. Recommend dropping.
 Xuanhanosaurus -Very low image and fossil count. Recommend dropping.
 Zhenyuanlong -Many images of one fossil.
 Zhuchengtyrannus -Only one partial skull holotype. Most images of same fossil.
+
+My Data v.5 will be the post data processing v.4 with all of the above classes removed. 
+From above kept 
+Gorgosaurus
+Lythronax
+Ornithomimus
+Sinosauropteryx
+Tarbosaurus
+Tyrannotitan
+Post class removal, there are 11,620 Files, 50 Folders
