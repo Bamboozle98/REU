@@ -1,0 +1,2 @@
+This a google chrome image scraper that I found and re-tooled. The original repository where I acquired this code can be found [here](https://github.com/ohyicong/Google-Image-Scraper).
+The only changes I made were in the main.py file in which I made it so that the scraper would use keywords extracted from my dataset and automatically scrape the images for me.
