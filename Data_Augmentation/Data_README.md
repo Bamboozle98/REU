@@ -41,26 +41,26 @@ Version 4 represents the largest change in the dataset in a single given step. I
    Any class that had below 50 images by default was removed. Classes with low image couunts and little data to supplement them would have a negative bias from the models trained on the data which could skew the results. Additionally, folders with absurdly high image counts and poor classification value would have a positive bias from the model and skew the results. One folder in particular was a 'problem child' for this project. The folder named 'Bing-saurischia' which encompassed any theropod image from the Bing search engine contained over ~8,000 images alone of the ~20,000 total. Most other folders contained somewhere between 50 and 200 images. Additionally, the 'Bing-saurischia' folder had images in it that belonged in other classes, thus models trained on the dataset would confuse the same theropod for two different classes. I believe this folder was created as a sort of miscelaneous dump for images the researchers couldn't or didn't want to classify by genus. They did not need to for the purposes of their research. Conversely, my research does require it. Therefore, I chose to remove the folder all together.
    
 Below are the removed classes:
-Moved 'Tyrannosaurus rex fossil into 'Tyrannosaurus fossil', renamed 'Tyrannosaurus fossil' to 'Tyrannosaurus skeleton'.
-Removed the following classes due to low image count
-Agrosaurus skeleton
-Ajancingenia skeleton
-Anserimimus skeleton
-Avimimus skeleton
-Bing-saurischia
-Genyodectes skeleton
-Hagryphus skeleton
-Harpymimus skeleton
-Ilokelesia skeleton
-Khaan skeleton
-Ligabueino skeleton
-Muraenosaurus fossil
-Piatnitzkysaurus skeleton
-Sinovenator skeleton
-Tianyuraptor skeleton
-Xiaotingia skeleton
-Xunmenglong skeleton
-Zupaysaurus skeleton
+-Moved 'Tyrannosaurus rex fossil into 'Tyrannosaurus fossil', renamed 'Tyrannosaurus fossil' to 'Tyrannosaurus skeleton'.
+-Removed the following classes due to low image count
+-Agrosaurus skeleton
+-Ajancingenia skeleton
+-Anserimimus skeleton
+-Avimimus skeleton
+-Bing-saurischia
+-Genyodectes skeleton
+-Hagryphus skeleton
+-Harpymimus skeleton
+-Ilokelesia skeleton
+-Khaan skeleton
+-Ligabueino skeleton
+-Muraenosaurus fossil
+-Piatnitzkysaurus skeleton
+-Sinovenator skeleton
+-Tianyuraptor skeleton
+-Xiaotingia skeleton
+-Xunmenglong skeleton
+-Zupaysaurus skeleton
    
 ### 2. Data Supplementation: 
 Removing 'Bing-saurischia' created a new problem however, I had lost almost half of my entire dataset. I determined that I had to supplement my dataset. I found a google chrome image scraper and re-tooled it for my purposes, then scraped over ~15,000 images.
