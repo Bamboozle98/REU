@@ -1,6 +1,10 @@
 import os
 import shutil
 
+# This code was used to copy all of the cleaned images scraped from the web and paste them into the approriate 
+# folders containing my dataset. 
+# This code incorporates the file_string_parser script to iterate through all folders in my dataset. 
+
 file_list = 'E:/My Data v.4/theropod/'
 
 for fname in os.listdir(file_list)[20:]:
