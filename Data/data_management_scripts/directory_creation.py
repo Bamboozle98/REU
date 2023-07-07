@@ -2,10 +2,8 @@ import re
 import glob
 import os
 
-# This code was written as the framework for parsing through my database file directory to automatically scrape images.
-# It iterates through the indexes 19 to end because I implemented this code after doing the first 20 directories one by
-# one.
-# This code was incorporated into the Google-Image_Scraper main.py file as well as the duplicate_image_obliterater.py
+# This code was used to automatically create all of the directories needed to store my scraped data. 
+# This code incorporates the file_string_parser script to iterate through all folders in my dataset. 
 file_list = 'E:/My Data v.4/theropod/'
 
 for fname in os.listdir(file_list)[20:]:
