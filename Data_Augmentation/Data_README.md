@@ -35,7 +35,36 @@ Version 3 is Version 1 except I removed some folders (classes) from the theropod
 -In total, deleted 9 folders. Went from 20,622 total images to 18,631 total images. Went from 112 classes to 103 classes.  
 
 ## Version 4
-Version 4 represents the largest change in the dataset in a single given step. It includes class removal, data supplementation, and data cleaning.  
+Version 4 represents the largest change in the dataset in a single given step. It includes class removal, data supplementation, and data cleaning. To start, an image count was taken for every class. This paragraph represents a breif overview of the steps I took in modifying the data for Version 4. More detailed information of the changes can be found below. 
+
+### 1. Class Removal:
+   Any class that had below 50 images by default was removed. Classes with low image couunts and little data to supplement them would have a negative bias from the models trained on the data which could skew the results. Additionally, folders with absurdly high image counts and poor classification value would have a positive bias from the model and skew the results. One folder in particular was a 'problem child' for this project. The folder named 'Bing-saurischia' which encompassed any theropod image from the Bing search engine contained over ~8,000 images alone of the ~20,000 total. Most other folders contained somewhere between 50 and 200 images. Additionally, the 'Bing-saurischia' folder had images in it that belonged in other classes, thus models trained on the dataset would confuse the same theropod for two different classes. I believe this folder was created as a sort of miscelaneous dump for images the researchers couldn't or didn't want to classify by genus. They did not need to for the purposes of their research. Conversely, my research does require it. Therefore, I chose to remove the folder all together.
+   
+### 2. Data Supplementation: 
+Removing 'Bing-saurischia' created a new problem however, I had lost almost half of my entire dataset. I determined that I had to supplement my dataset. I found a google chrome image scraper and re-tooled it for my purposes, then scraped over ~15,000 images.
+   
+### 3. Data cleaning: 
+I went through every image one-by-one and determined whether or not it belonged in that class. Afterwards, I copied all the images into the approriate folders of my theropod dataset. After attempting to run my new dataset, I realized the 'flow_from_directory' function I was using from the Tensorflow library did not work with certain file types that I had scraped from the web. I had to remove theses file types in order for the function to identify the actual amount of images in each folder. 
+
+Moved 'Tyrannosaurus rex fossil into 'Tyrannosaurus fossil', renamed 'Tyrannosaurus fossil' to 'Tyrannosaurus skeleton'.
+Removed the following classes due to low image count
+Agrosaurus skeleton
+Ajancingenia skeleton
+Anserimimus skeleton
+Avimimus skeleton
+Genyodectes skeleton
+Hagryphus skeleton
+Harpymimus skeleton
+Ilokelesia skeleton
+Khaan skeleton
+Ligabueino skeleton
+Muraenosaurus fossil
+Piatnitzkysaurus skeleton
+Sinovenator skeleton
+Tianyuraptor skeleton
+Xiaotingia skeleton
+Xunmenglong skeleton
+Zupaysaurus skeleton
 
 
 After I modified the data directory, I ran the 'data_split.py' file on my new modified theropod folder. This script split the available data into a training set, a validation set, and a testing set with the ratios 80%, 10%, and 10% respectively. These are the data files I reference for data generation within my models. For instance:
