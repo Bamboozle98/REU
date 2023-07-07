@@ -83,30 +83,13 @@ Below are the removed classes:
 -Zupaysaurus skeleton
    
 ### 2. Data Supplementation: 
-Removing 'Bing-saurischia' created a new problem however, I had lost almost half of my entire dataset. I determined that I had to supplement my dataset. I found a google chrome image scraper and re-tooled it for my purposes, then scraped over ~15,000 images.
+Removing 'Bing-saurischia' created a new problem however, I had lost almost half of my entire dataset. I determined that I had to supplement my dataset with more images. I found a google chrome image scraper and re-tooled it for my purposes, then scraped over ~15,000 images. The scraper I used can be found the 'data_scraper' directory in this repository. Please read the 'scraper_README' which clarifies the origin of the scraper and what changes I made to it. Using the scraper, I scraped google for images related to every genus with these keywords, _name_ fossil, _name_ skeleton, and _name_ skull where 'name' refers to a particular genus in my dataset. For example 'Dilophosaurus fossil', 'Dilophosaurus skelton', and 'Dilophosaurus skull'. Each keyword had a limit of 100 images, however, it was rare that the scraper found 100 images for any search. These images were stored in a seperate folder organized by genus name which were created using the 'directory_creation.py' file. Over 15,000 images were scraped in total. 
    
 ### 3. Data cleaning: 
-I went through every image one-by-one and determined whether or not it belonged in that class. Afterwards, I copied all the images into the approriate folders of my theropod dataset. After attempting to run my new dataset, I realized the 'flow_from_directory' function I was using from the Tensorflow library did not work with certain file types that I had scraped from the web. I had to remove theses file types in order for the function to identify the actual amount of images in each folder. 
+I went through every image one-by-one and determined whether or not it belonged in that class. As mentioned before, I am not an expert or novice paleontologist. I struggle to identify the distinctions between Tarbosaurus and Tyrannosaurus based on close-up images of their skulls. That being said, the google image scraper would frequently provide images that were obviously incorrect. For instance, finding a sauropod in the spinosaurus folder. These obvious errors I felt comfortable rectifying. Afterwards, I copied all the images into the approriate folders of my theropod dataset. After attempting to run my new dataset, I realized the 'flow_from_directory' function I was using from the Tensorflow library did not work with certain file types that I had scraped from the web. Subsequently, the model would generate less predictions than there were files in my test folder. Those file types included .gif, .mbp, .mpo, and extensionless files. I had to remove theses file types with the 'file_scrubber.py' file in order for the function to identify the actual amount of images in each folder and generate the approriate amount of predictions. Once the data was fully clean, I copied the scraped images into the actual dataset using the 'data_copy_paste.py' file. This concluded the changes to Version 4 of my dataset.
 
-Moved 'Tyrannosaurus rex fossil into 'Tyrannosaurus fossil', renamed 'Tyrannosaurus fossil' to 'Tyrannosaurus skeleton'.
-Removed the following classes due to low image count
-Agrosaurus skeleton
-Ajancingenia skeleton
-Anserimimus skeleton
-Avimimus skeleton
-Genyodectes skeleton
-Hagryphus skeleton
-Harpymimus skeleton
-Ilokelesia skeleton
-Khaan skeleton
-Ligabueino skeleton
-Muraenosaurus fossil
-Piatnitzkysaurus skeleton
-Sinovenator skeleton
-Tianyuraptor skeleton
-Xiaotingia skeleton
-Xunmenglong skeleton
-Zupaysaurus skeleton
+## Version 5
+Version 5 is Version 4 with certain folders removed. While cleaning the data in Version 4, I took notes on which classes I thought may be ill-suited for model classification. The reasons I used for determining if a class was ill-suited included the class sharing many images with another class, the class having a low image count post supplementation, the class representing a dubious genus, or if I was too unsure about whether the images in a class actually belonged to that genus.  
 
 
 After I modified the data directory, I ran the 'data_split.py' file on my new modified theropod folder. This script split the available data into a training set, a validation set, and a testing set with the ratios 80%, 10%, and 10% respectively. These are the data files I reference for data generation within my models. For instance:
