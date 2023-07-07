@@ -9,7 +9,8 @@ import cv2
 import time
 import PIL
 import keras
-from keras import applications, optimizers
+from keras import applications, optimizers, callbacks
+from keras.callbacks import EarlyStopping
 from tensorflow import keras
 from tensorflow.python.keras import layers
 from keras.applications import resnet
@@ -21,6 +22,8 @@ from matplotlib import pyplot
 from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout
 import sklearn
 from sklearn.metrics import f1_score, precision_score, recall_score, accuracy_score
+
+callbacks = [EarlyStopping(monitor='val_categorical_accuracy', patience=10, verbose=0)]
 
 physical_devices = tf.config.experimental.list_physical_devices('GPU')
 if len(physical_devices) > 0:
@@ -106,6 +109,7 @@ def build_model():
 
     model2 = keras.models.Model(inputs=[tensor_input], outputs=[model_detector2.layers[-1].output])
 
+
     x = model_detector.layers[17].output
     z = model_detector.layers[17].output_shape
     y = model2.layers[17].output
@@ -134,8 +138,10 @@ def build_model():
 
     initializer = tf.keras.initializers.GlorotNormal()
 
-    x = keras.layers.Dense(units=103,
-                           kernel_regularizer=keras.regularizers.l2(0.0),
+    x = keras.layers.Dropout(0.2)(x)
+    x = Dense(512, activation='relu')(x)
+    x = keras.layers.Dense(units=81,
+                           kernel_regularizer=keras.regularizers.l2(0.01),
                            kernel_initializer=initializer)(x)
 
     tensor_prediction = keras.layers.Activation("softmax")(x)
@@ -147,13 +153,13 @@ def build_model():
     for layer in model_detector.layers:
         layer.trainable = False
 
-    sgd = keras.optimizers.SGD(lr=1.0,
+    sgd = keras.optimizers.SGD(lr=0.1,
                                decay=0.0,
                                momentum=0.9)
 
     model_bilinear.compile(loss=tf.keras.losses.CategoricalCrossentropy(),
                            optimizer=sgd,
-                           metrics=["categorical_accuracy"])
+                           metrics=["categorical_accuracy"],)
 
     model_bilinear.summary()
 
@@ -164,16 +170,16 @@ model = build_model()
 
 
 def train_model(epochs):
-    hist = model.fit_generator(
+    hist = model.fit(
         train_generator,
         epochs=epochs,
         validation_data=val_generator,
         workers=3,
-        verbose=1
+        verbose=1,
     )
 # Changed hist.history part of concatenation to a string value using typecast.
     model.save_weights(
-        "E:/My_Models" + str(hist.history['val_categorical_accuracy'][-1]) + "_" + str(epochs) + ".h5")
+        "E:/My_Models/my_weights/" + str(hist.history['val_categorical_accuracy'][-1]) + "_" + str(epochs) + ".h5")
 
     return hist
 
@@ -189,21 +195,21 @@ train_datagen = image.ImageDataGenerator(
     horizontal_flip=True)
 test_datagen = image.ImageDataGenerator(rescale=1. / 255)
 train_generator = train_datagen.flow_from_directory(
-    "E:/My Data v.3/split_data/train",
+    "E:/My Data v.4/split_data/train",
     target_size=(150, 150),
     color_mode="rgb",
-    batch_size=32,
+    batch_size=16,
     subset='training',
     class_mode='categorical')
 val_generator = test_datagen.flow_from_directory(
-    "E:/My Data v.3/split_data/val",
+    "E:/My Data v.4/split_data/val",
     target_size=(150, 150),
     color_mode="rgb",
-    batch_size=32,
+    batch_size=16,
     subset='training',
     class_mode='categorical')
 test_generator = test_datagen.flow_from_directory(
-    "E:/My Data v.3/split_data/test",
+    "E:/My Data v.4/split_data/test",
     target_size=(150, 150),
     color_mode="rgb",
     shuffle=False,
@@ -211,48 +217,47 @@ test_generator = test_datagen.flow_from_directory(
     batch_size=1)
 
 
-hist = train_model(epochs=20)
+hist = train_model(epochs=40)
 
 
-for layer in model.layers:
+for layer in model.layers[5:]:
     layer.trainable = True
 
 sgd = keras.optimizers.SGD(lr=1e-3, decay=1e-9, momentum=0.9)
 
 model.compile(loss=tf.keras.losses.CategoricalCrossentropy(), optimizer=sgd, metrics=["categorical_accuracy"])
-hist = train_model(epochs=30)
+hist = train_model(epochs=120)
 
-model.save('E:/My_Models/')
+model.save('E:/My_Models/model_saves/')
 
-model2 = keras.models.load_model('E:/My_Models/')
+model2 = keras.models.load_model('E:/My_Models/model_saves/')
 preds = model2.predict(test_generator, verbose=1)
 
 preds_cls_idx = preds.argmax(axis=-1)
-
 
 idx_to_cls = {v: k for k, v in train_generator.class_indices.items()}
 preds_cls = np.vectorize(idx_to_cls.get)(preds_cls_idx)
 
 
-true_labels = []
-true_labels_upc_idx_map = {}
-true_labels_img = {}
-upc_list = os.listdir("E:/My Data v.3/split_data/test/")
+true_lables = []
+true_lables_upc_idx_map = {}
+true_lables_img = {}
+upc_list = os.listdir('E:/My Data v.5/split_data/test/')
 idx = 0
 for upc in upc_list:
-    img_folder = "E:/My Data v.3/split_data/test/" + upc + '/'
+    img_folder = 'E:/My Data v.5/split_data/test/' + upc +'/'
     img_list = os.listdir(img_folder)
     for img in img_list:
-        true_labels.append(upc)
-        true_labels_upc_idx_map[idx] = upc
-        true_labels_img[idx] = img
+        true_lables.append(upc)
+        true_lables_upc_idx_map[idx] = upc
+        true_lables_img[idx] = img
         idx += 1
-len(true_labels)
+len(true_lables)
 
 wrong_predicted = []
 count = 0
 for idx in range(0, len(preds_cls)):
-    if preds_cls[idx] != true_labels[idx]:
+    if preds_cls[idx] != true_lables[idx]:
         wrong_predicted.append(idx)
     else:
         count += 1
@@ -265,31 +270,31 @@ accuracy = count/len(preds_cls)
 
 wrong_pred_upc = set()
 for label in wrong_predicted:
-    wrong_pred_upc.add(true_labels_upc_idx_map[label])
+    wrong_pred_upc.add(true_lables_upc_idx_map[label])
 len(wrong_pred_upc), len(wrong_predicted)
 
 images_pred_wrong = []
 for label in wrong_predicted:
-    images_pred_wrong.append(true_labels_img[label])
+    images_pred_wrong.append(true_lables_img[label])
 len(images_pred_wrong)
 
-d = {}
-for i in range(0, len(images_pred_wrong)):
+d={}
+for i in range(0 ,len(images_pred_wrong)):
     if preds_cls[i] not in d.keys():
         d[preds_cls[i]] = 1
     else:
         d[preds_cls[i]] += 1
 
 
-for i in range(0, len(images_pred_wrong)):
-    img = 'E:/My Data v.3/split_data/test' + true_labels_upc_idx_map[wrong_predicted[i]] + '/' + images_pred_wrong[i]
+for i in range(0 ,len(images_pred_wrong)):
+    img ='E:/My Data v.5/split_data/test/' + true_lables_upc_idx_map[wrong_predicted[i]] + '/' + images_pred_wrong[i]
     print(img, preds_cls[i])
 
-
-f1 = f1_score(true_labels, preds_cls, average='weighted')
-precision = precision_score(true_labels, preds_cls, average='weighted')
-recall = recall_score(true_labels, preds_cls, average='weighted')
-accuracy = accuracy_score(true_labels, preds_cls)
+from sklearn.metrics import f1_score,precision_score,recall_score,accuracy_score
+f1 = f1_score(true_lables, preds_cls, average='weighted')
+precision = precision_score(true_lables, preds_cls, average='weighted')
+recall  = recall_score(true_lables, preds_cls, average='weighted')
+accuracy = accuracy_score(true_lables, preds_cls)
 print("f1 :", f1)
 print("precision :", precision)
 print("recall :", recall)
