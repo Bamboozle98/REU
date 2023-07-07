@@ -1,5 +1,7 @@
 import os
-
+# This code was used to remove all of the file types in my dataset that were not png, jpeg, or jpg. The flow_from_directory 
+# function would not identify all images otherwise. This code incorporates the file_string_parser script to iterate through
+# all folders in my dataset. 
 file_list = 'E:/My Data v.4/theropod/'
 count = 0
 
