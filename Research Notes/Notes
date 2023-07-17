@@ -3,3 +3,7 @@ color normalization
 View image augmentations (matplotlib)
 Use image augmentation on color 
 bilinear interpolation
+
+
+
+(VGG - 40, 40) 287/287 [==============================] - 43s 150ms/step - loss: 0.9989 - categorical_accuracy: 0.6976 - val_loss: 5.6047 - val_categorical_accuracy: 0.2402
