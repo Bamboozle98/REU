@@ -7,3 +7,1151 @@ bilinear interpolation
 
 
 (VGG - 40, 40) 287/287 [==============================] - 43s 150ms/step - loss: 0.9989 - categorical_accuracy: 0.6976 - val_loss: 5.6047 - val_categorical_accuracy: 0.2402
+
+
+
+
+
+
+
+
+
+
+C:\Users\pc\miniconda3\envs\dino\python.exe C:/Users/pc/PycharmProjects/TS_GPU_REU/Models/Chalkboard.py
+2023-07-17 16:01:27.031456: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-07-17 16:01:27.421943: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1616] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 5447 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 3070 Ti, pci bus id: 0000:01:00.0, compute capability: 8.6
+Model: "vgg16"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ input_2 (InputLayer)        [(None, 150, 150, 3)]     0         
+                                                                 
+ block1_conv1 (Conv2D)       (None, 150, 150, 64)      1792      
+                                                                 
+ block1_conv2 (Conv2D)       (None, 150, 150, 64)      36928     
+                                                                 
+ block1_pool (MaxPooling2D)  (None, 75, 75, 64)        0         
+                                                                 
+ block2_conv1 (Conv2D)       (None, 75, 75, 128)       73856     
+                                                                 
+ block2_conv2 (Conv2D)       (None, 75, 75, 128)       147584    
+                                                                 
+ block2_pool (MaxPooling2D)  (None, 37, 37, 128)       0         
+                                                                 
+ block3_conv1 (Conv2D)       (None, 37, 37, 256)       295168    
+                                                                 
+ block3_conv2 (Conv2D)       (None, 37, 37, 256)       590080    
+                                                                 
+ block3_conv3 (Conv2D)       (None, 37, 37, 256)       590080    
+                                                                 
+ block3_pool (MaxPooling2D)  (None, 18, 18, 256)       0         
+                                                                 
+ block4_conv1 (Conv2D)       (None, 18, 18, 512)       1180160   
+                                                                 
+ block4_conv2 (Conv2D)       (None, 18, 18, 512)       2359808   
+                                                                 
+ block4_conv3 (Conv2D)       (None, 18, 18, 512)       2359808   
+                                                                 
+ block4_pool (MaxPooling2D)  (None, 9, 9, 512)         0         
+                                                                 
+ block5_conv1 (Conv2D)       (None, 9, 9, 512)         2359808   
+                                                                 
+ block5_conv2 (Conv2D)       (None, 9, 9, 512)         2359808   
+                                                                 
+ block5_conv3 (Conv2D)       (None, 9, 9, 512)         2359808   
+                                                                 
+ block5_pool (MaxPooling2D)  (None, 4, 4, 512)         0         
+                                                                 
+=================================================================
+Total params: 14,714,688
+Trainable params: 14,714,688
+Non-trainable params: 0
+_________________________________________________________________
+None
+Model: "model"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ input_2 (InputLayer)        [(None, 150, 150, 3)]     0         
+                                                                 
+ block1_conv1_second (Conv2D  (None, 150, 150, 64)     1792      
+ )                                                               
+                                                                 
+ block1_conv2_second (Conv2D  (None, 150, 150, 64)     36928     
+ )                                                               
+                                                                 
+ block1_pool_second (MaxPool  (None, 75, 75, 64)       0         
+ ing2D)                                                          
+                                                                 
+ block2_conv1_second (Conv2D  (None, 75, 75, 128)      73856     
+ )                                                               
+                                                                 
+ block2_conv2_second (Conv2D  (None, 75, 75, 128)      147584    
+ )                                                               
+                                                                 
+ block2_pool_second (MaxPool  (None, 37, 37, 128)      0         
+ ing2D)                                                          
+                                                                 
+ block3_conv1_second (Conv2D  (None, 37, 37, 256)      295168    
+ )                                                               
+                                                                 
+ block3_conv2_second (Conv2D  (None, 37, 37, 256)      590080    
+ )                                                               
+                                                                 
+ block3_conv3_second (Conv2D  (None, 37, 37, 256)      590080    
+ )                                                               
+                                                                 
+ block3_pool_second (MaxPool  (None, 18, 18, 256)      0         
+ ing2D)                                                          
+                                                                 
+ block4_conv1_second (Conv2D  (None, 18, 18, 512)      1180160   
+ )                                                               
+                                                                 
+ block4_conv2_second (Conv2D  (None, 18, 18, 512)      2359808   
+ )                                                               
+                                                                 
+ block4_conv3_second (Conv2D  (None, 18, 18, 512)      2359808   
+ )                                                               
+                                                                 
+ block4_pool_second (MaxPool  (None, 9, 9, 512)        0         
+ ing2D)                                                          
+                                                                 
+ block5_conv1_second (Conv2D  (None, 9, 9, 512)        2359808   
+ )                                                               
+                                                                 
+ block5_conv2_second (Conv2D  (None, 9, 9, 512)        2359808   
+ )                                                               
+                                                                 
+ block5_conv3_second (Conv2D  (None, 9, 9, 512)        2359808   
+ )                                                               
+                                                                 
+ block5_pool_second (MaxPool  (None, 4, 4, 512)        0         
+ ing2D)                                                          
+                                                                 
+=================================================================
+Total params: 14,714,688
+Trainable params: 14,714,688
+Non-trainable params: 0
+_________________________________________________________________
+None
+Model: "model_1"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to                     
+==================================================================================================
+ input_2 (InputLayer)           [(None, 150, 150, 3  0           []                               
+                                )]                                                                
+                                                                                                  
+ block1_conv1 (Conv2D)          (None, 150, 150, 64  1792        ['input_2[0][0]']                
+                                )                                                                 
+                                                                                                  
+ block1_conv1_second (Conv2D)   (None, 150, 150, 64  1792        ['input_2[0][0]']                
+                                )                                                                 
+                                                                                                  
+ block1_conv2 (Conv2D)          (None, 150, 150, 64  36928       ['block1_conv1[0][0]']           
+                                )                                                                 
+                                                                                                  
+ block1_conv2_second (Conv2D)   (None, 150, 150, 64  36928       ['block1_conv1_second[0][0]']    
+                                )                                                                 
+                                                                                                  
+ block1_pool (MaxPooling2D)     (None, 75, 75, 64)   0           ['block1_conv2[0][0]']           
+                                                                                                  
+ block1_pool_second (MaxPooling  (None, 75, 75, 64)  0           ['block1_conv2_second[0][0]']    
+ 2D)                                                                                              
+                                                                                                  
+ block2_conv1 (Conv2D)          (None, 75, 75, 128)  73856       ['block1_pool[0][0]']            
+                                                                                                  
+ block2_conv1_second (Conv2D)   (None, 75, 75, 128)  73856       ['block1_pool_second[0][0]']     
+                                                                                                  
+ block2_conv2 (Conv2D)          (None, 75, 75, 128)  147584      ['block2_conv1[0][0]']           
+                                                                                                  
+ block2_conv2_second (Conv2D)   (None, 75, 75, 128)  147584      ['block2_conv1_second[0][0]']    
+                                                                                                  
+ block2_pool (MaxPooling2D)     (None, 37, 37, 128)  0           ['block2_conv2[0][0]']           
+                                                                                                  
+ block2_pool_second (MaxPooling  (None, 37, 37, 128)  0          ['block2_conv2_second[0][0]']    
+ 2D)                                                                                              
+                                                                                                  
+ block3_conv1 (Conv2D)          (None, 37, 37, 256)  295168      ['block2_pool[0][0]']            
+                                                                                                  
+ block3_conv1_second (Conv2D)   (None, 37, 37, 256)  295168      ['block2_pool_second[0][0]']     
+                                                                                                  
+ block3_conv2 (Conv2D)          (None, 37, 37, 256)  590080      ['block3_conv1[0][0]']           
+                                                                                                  
+C:\Users\pc\miniconda3\envs\dino\lib\site-packages\keras\optimizers\optimizer_v2\gradient_descent.py:111: UserWarning: The `lr` argument is deprecated, use `learning_rate` instead.
+  super().__init__(name, **kwargs)
+ block3_conv2_second (Conv2D)   (None, 37, 37, 256)  590080      ['block3_conv1_second[0][0]']    
+                                                                                                  
+ block3_conv3 (Conv2D)          (None, 37, 37, 256)  590080      ['block3_conv2[0][0]']           
+                                                                                                  
+ block3_conv3_second (Conv2D)   (None, 37, 37, 256)  590080      ['block3_conv2_second[0][0]']    
+                                                                                                  
+ block3_pool (MaxPooling2D)     (None, 18, 18, 256)  0           ['block3_conv3[0][0]']           
+                                                                                                  
+ block3_pool_second (MaxPooling  (None, 18, 18, 256)  0          ['block3_conv3_second[0][0]']    
+ 2D)                                                                                              
+                                                                                                  
+ block4_conv1 (Conv2D)          (None, 18, 18, 512)  1180160     ['block3_pool[0][0]']            
+                                                                                                  
+ block4_conv1_second (Conv2D)   (None, 18, 18, 512)  1180160     ['block3_pool_second[0][0]']     
+                                                                                                  
+ block4_conv2 (Conv2D)          (None, 18, 18, 512)  2359808     ['block4_conv1[0][0]']           
+                                                                                                  
+ block4_conv2_second (Conv2D)   (None, 18, 18, 512)  2359808     ['block4_conv1_second[0][0]']    
+                                                                                                  
+ block4_conv3 (Conv2D)          (None, 18, 18, 512)  2359808     ['block4_conv2[0][0]']           
+                                                                                                  
+ block4_conv3_second (Conv2D)   (None, 18, 18, 512)  2359808     ['block4_conv2_second[0][0]']    
+                                                                                                  
+ block4_pool (MaxPooling2D)     (None, 9, 9, 512)    0           ['block4_conv3[0][0]']           
+                                                                                                  
+ block4_pool_second (MaxPooling  (None, 9, 9, 512)   0           ['block4_conv3_second[0][0]']    
+ 2D)                                                                                              
+                                                                                                  
+ block5_conv1 (Conv2D)          (None, 9, 9, 512)    2359808     ['block4_pool[0][0]']            
+                                                                                                  
+ block5_conv1_second (Conv2D)   (None, 9, 9, 512)    2359808     ['block4_pool_second[0][0]']     
+                                                                                                  
+ block5_conv2 (Conv2D)          (None, 9, 9, 512)    2359808     ['block5_conv1[0][0]']           
+                                                                                                  
+ block5_conv2_second (Conv2D)   (None, 9, 9, 512)    2359808     ['block5_conv1_second[0][0]']    
+                                                                                                  
+ block5_conv3 (Conv2D)          (None, 9, 9, 512)    2359808     ['block5_conv2[0][0]']           
+                                                                                                  
+ block5_conv3_second (Conv2D)   (None, 9, 9, 512)    2359808     ['block5_conv2_second[0][0]']    
+                                                                                                  
+ reshape (Reshape)              (None, 81, 512)      0           ['block5_conv3[0][0]']           
+                                                                                                  
+C:\Users\pc\miniconda3\envs\dino\lib\site-packages\keras\preprocessing\image.py:1446: UserWarning: This ImageDataGenerator specifies `zca_whitening`, which overrides setting of `featurewise_center`.
+  warnings.warn(
+ reshape_1 (Reshape)            (None, 81, 512)      0           ['block5_conv3_second[0][0]']    
+                                                                                                  
+ lambda (Lambda)                (None, 512, 512)     0           ['reshape[0][0]',                
+                                                                  'reshape_1[0][0]']              
+                                                                                                  
+ reshape_2 (Reshape)            (None, 262144)       0           ['lambda[0][0]']                 
+                                                                                                  
+ lambda_1 (Lambda)              (None, 262144)       0           ['reshape_2[0][0]']              
+                                                                                                  
+ lambda_2 (Lambda)              (None, 262144)       0           ['lambda_1[0][0]']               
+                                                                                                  
+ dropout (Dropout)              (None, 262144)       0           ['lambda_2[0][0]']               
+                                                                                                  
+ dense (Dense)                  (None, 50)           13107250    ['dropout[0][0]']                
+                                                                                                  
+ activation (Activation)        (None, 50)           0           ['dense[0][0]']                  
+                                                                                                  
+==================================================================================================
+Total params: 42,536,626
+Trainable params: 27,821,938
+Non-trainable params: 14,714,688
+__________________________________________________________________________________________________
+Found 9166 images belonging to 50 classes.
+Found 1124 images belonging to 50 classes.
+Found 1198 images belonging to 50 classes.
+C:\Users\pc\PycharmProjects\TS_GPU_REU\Models\Chalkboard.py:160: UserWarning: `Model.fit_generator` is deprecated and will be removed in a future version. Please use `Model.fit`, which supports generators.
+  hist = model.fit_generator(
+C:\Users\pc\miniconda3\envs\dino\lib\site-packages\keras\preprocessing\image.py:1863: UserWarning: This ImageDataGenerator specifies `featurewise_center`, but it hasn't been fit on any training data. Fit it first by calling `.fit(numpy_data)`.
+  warnings.warn(
+C:\Users\pc\miniconda3\envs\dino\lib\site-packages\keras\preprocessing\image.py:1886: UserWarning: This ImageDataGenerator specifies `zca_whitening`, but it hasn't been fit on any training data. Fit it first by calling `.fit(numpy_data)`.
+  warnings.warn(
+Epoch 1/40
+2023-07-17 16:01:30.424158: I tensorflow/stream_executor/cuda/cuda_dnn.cc:384] Loaded cuDNN version 8100
+2023-07-17 16:01:31.142665: W tensorflow/stream_executor/gpu/asm_compiler.cc:111] *** WARNING *** You are using ptxas 9.0.176, which is older than 11.1. ptxas before 11.1 is known to miscompile XLA code, leading to incorrect results or invalid-address errors.
+
+You may not need to update to CUDA 11.1; cherry-picking the ptxas binary is often sufficient.
+2023-07-17 16:01:31.255858: W tensorflow/stream_executor/gpu/redzone_allocator.cc:314] INTERNAL: ptxas exited with non-zero error code -1, output: 
+Relying on driver to perform ptx compilation. 
+Modify $PATH to customize ptxas location.
+This message will be only logged once.
+2023-07-17 16:01:31.999418: W tensorflow/core/common_runtime/bfc_allocator.cc:290] Allocator (GPU_0_bfc) ran out of memory trying to allocate 1.56GiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
+2023-07-17 16:01:31.999599: W tensorflow/core/common_runtime/bfc_allocator.cc:290] Allocator (GPU_0_bfc) ran out of memory trying to allocate 1.56GiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
+2023-07-17 16:01:31.999762: W tensorflow/core/common_runtime/bfc_allocator.cc:290] Allocator (GPU_0_bfc) ran out of memory trying to allocate 3.04GiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
+2023-07-17 16:01:31.999926: W tensorflow/core/common_runtime/bfc_allocator.cc:290] Allocator (GPU_0_bfc) ran out of memory trying to allocate 3.04GiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
+2023-07-17 16:01:32.042198: W tensorflow/core/common_runtime/bfc_allocator.cc:290] Allocator (GPU_0_bfc) ran out of memory trying to allocate 1.56GiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
+2023-07-17 16:01:32.042372: W tensorflow/core/common_runtime/bfc_allocator.cc:290] Allocator (GPU_0_bfc) ran out of memory trying to allocate 1.56GiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
+2023-07-17 16:01:32.042533: W tensorflow/core/common_runtime/bfc_allocator.cc:290] Allocator (GPU_0_bfc) ran out of memory trying to allocate 3.04GiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
+2023-07-17 16:01:32.042695: W tensorflow/core/common_runtime/bfc_allocator.cc:290] Allocator (GPU_0_bfc) ran out of memory trying to allocate 3.04GiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
+2023-07-17 16:01:32.546100: W tensorflow/core/common_runtime/bfc_allocator.cc:360] Garbage collection: deallocate free memory regions (i.e., allocations) so that we can re-allocate a larger region to avoid OOM due to memory fragmentation. If you see this message frequently, you are running near the threshold of the available device memory and re-allocation may incur great performance overhead. You may try smaller batch sizes to observe the performance impact. Set TF_ENABLE_GPU_GARBAGE_COLLECTION=false if you'd like to disable this feature.
+2023-07-17 16:01:32.862798: W tensorflow/core/common_runtime/bfc_allocator.cc:290] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.55GiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
+2023-07-17 16:01:32.862974: W tensorflow/core/common_runtime/bfc_allocator.cc:290] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.55GiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
+2023-07-17 16:01:34.399535: I tensorflow/stream_executor/cuda/cuda_blas.cc:1614] TensorFloat-32 will be used for the matrix multiplication. This will only be logged once.
+ 10/287 [>.............................] - ETA: 45s - loss: 3.9004 - categorical_accuracy: 0.0312C:\Users\pc\miniconda3\envs\dino\lib\site-packages\PIL\Image.py:992: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images
+  warnings.warn(
+287/287 [==============================] - 64s 191ms/step - loss: 3.9556 - categorical_accuracy: 0.0381 - val_loss: 3.8456 - val_categorical_accuracy: 0.0516
+Epoch 2/40
+287/287 [==============================] - 51s 178ms/step - loss: 3.8639 - categorical_accuracy: 0.0603 - val_loss: 3.7303 - val_categorical_accuracy: 0.0899
+Epoch 3/40
+287/287 [==============================] - 52s 179ms/step - loss: 3.7736 - categorical_accuracy: 0.0798 - val_loss: 3.7294 - val_categorical_accuracy: 0.0738
+Epoch 4/40
+287/287 [==============================] - 52s 180ms/step - loss: 3.7097 - categorical_accuracy: 0.0886 - val_loss: 3.5972 - val_categorical_accuracy: 0.1201
+Epoch 5/40
+287/287 [==============================] - 52s 180ms/step - loss: 3.6326 - categorical_accuracy: 0.1079 - val_loss: 3.5298 - val_categorical_accuracy: 0.1183
+Epoch 6/40
+287/287 [==============================] - 52s 180ms/step - loss: 3.5907 - categorical_accuracy: 0.1111 - val_loss: 3.4534 - val_categorical_accuracy: 0.1388
+Epoch 7/40
+287/287 [==============================] - 52s 180ms/step - loss: 3.5650 - categorical_accuracy: 0.1177 - val_loss: 3.4334 - val_categorical_accuracy: 0.1619
+Epoch 8/40
+287/287 [==============================] - 52s 179ms/step - loss: 3.5291 - categorical_accuracy: 0.1263 - val_loss: 3.5256 - val_categorical_accuracy: 0.1530
+Epoch 9/40
+287/287 [==============================] - 52s 179ms/step - loss: 3.5133 - categorical_accuracy: 0.1354 - val_loss: 3.4041 - val_categorical_accuracy: 0.1628
+Epoch 10/40
+287/287 [==============================] - 52s 179ms/step - loss: 3.4753 - categorical_accuracy: 0.1402 - val_loss: 3.4166 - val_categorical_accuracy: 0.1601
+Epoch 11/40
+287/287 [==============================] - 52s 179ms/step - loss: 3.4569 - categorical_accuracy: 0.1425 - val_loss: 3.3771 - val_categorical_accuracy: 0.1770
+Epoch 12/40
+287/287 [==============================] - 52s 180ms/step - loss: 3.4190 - categorical_accuracy: 0.1528 - val_loss: 3.3702 - val_categorical_accuracy: 0.1779
+Epoch 13/40
+287/287 [==============================] - 52s 179ms/step - loss: 3.4071 - categorical_accuracy: 0.1538 - val_loss: 3.3189 - val_categorical_accuracy: 0.1904
+Epoch 14/40
+287/287 [==============================] - 52s 180ms/step - loss: 3.4113 - categorical_accuracy: 0.1586 - val_loss: 3.2607 - val_categorical_accuracy: 0.1931
+Epoch 15/40
+287/287 [==============================] - 52s 180ms/step - loss: 3.3712 - categorical_accuracy: 0.1644 - val_loss: 3.3471 - val_categorical_accuracy: 0.1690
+Epoch 16/40
+287/287 [==============================] - 52s 180ms/step - loss: 3.3480 - categorical_accuracy: 0.1668 - val_loss: 3.3046 - val_categorical_accuracy: 0.1681
+Epoch 17/40
+287/287 [==============================] - 52s 180ms/step - loss: 3.3430 - categorical_accuracy: 0.1686 - val_loss: 3.2768 - val_categorical_accuracy: 0.1948
+Epoch 18/40
+287/287 [==============================] - 52s 180ms/step - loss: 3.3319 - categorical_accuracy: 0.1732 - val_loss: 3.2670 - val_categorical_accuracy: 0.1984
+Epoch 19/40
+287/287 [==============================] - 52s 180ms/step - loss: 3.3105 - categorical_accuracy: 0.1710 - val_loss: 3.2608 - val_categorical_accuracy: 0.2082
+Epoch 20/40
+287/287 [==============================] - 52s 179ms/step - loss: 3.2911 - categorical_accuracy: 0.1775 - val_loss: 3.2689 - val_categorical_accuracy: 0.2002
+Epoch 21/40
+287/287 [==============================] - 52s 179ms/step - loss: 3.2811 - categorical_accuracy: 0.1772 - val_loss: 3.2932 - val_categorical_accuracy: 0.2020
+Epoch 22/40
+287/287 [==============================] - 52s 179ms/step - loss: 3.2576 - categorical_accuracy: 0.1870 - val_loss: 3.2038 - val_categorical_accuracy: 0.2100
+Epoch 23/40
+287/287 [==============================] - 52s 179ms/step - loss: 3.2319 - categorical_accuracy: 0.1933 - val_loss: 3.2018 - val_categorical_accuracy: 0.2206
+Epoch 24/40
+287/287 [==============================] - 52s 179ms/step - loss: 3.2150 - categorical_accuracy: 0.1986 - val_loss: 3.1894 - val_categorical_accuracy: 0.2224
+Epoch 25/40
+287/287 [==============================] - 52s 179ms/step - loss: 3.1990 - categorical_accuracy: 0.2024 - val_loss: 3.1629 - val_categorical_accuracy: 0.2162
+Epoch 26/40
+287/287 [==============================] - 52s 179ms/step - loss: 3.1963 - categorical_accuracy: 0.2038 - val_loss: 3.2261 - val_categorical_accuracy: 0.2117
+Epoch 27/40
+287/287 [==============================] - 52s 180ms/step - loss: 3.1923 - categorical_accuracy: 0.1994 - val_loss: 3.1877 - val_categorical_accuracy: 0.2242
+Epoch 28/40
+287/287 [==============================] - 52s 179ms/step - loss: 3.1569 - categorical_accuracy: 0.2052 - val_loss: 3.1717 - val_categorical_accuracy: 0.2215
+Epoch 29/40
+287/287 [==============================] - 52s 179ms/step - loss: 3.1616 - categorical_accuracy: 0.2072 - val_loss: 3.1529 - val_categorical_accuracy: 0.2375
+Epoch 30/40
+287/287 [==============================] - 52s 179ms/step - loss: 3.1382 - categorical_accuracy: 0.2100 - val_loss: 3.1578 - val_categorical_accuracy: 0.2286
+Epoch 31/40
+287/287 [==============================] - 52s 179ms/step - loss: 3.1146 - categorical_accuracy: 0.2190 - val_loss: 3.1779 - val_categorical_accuracy: 0.2491
+Epoch 32/40
+287/287 [==============================] - 52s 179ms/step - loss: 3.1106 - categorical_accuracy: 0.2192 - val_loss: 3.2550 - val_categorical_accuracy: 0.2064
+Epoch 33/40
+287/287 [==============================] - 52s 179ms/step - loss: 3.1194 - categorical_accuracy: 0.2189 - val_loss: 3.1456 - val_categorical_accuracy: 0.2367
+Epoch 34/40
+287/287 [==============================] - 52s 179ms/step - loss: 3.1015 - categorical_accuracy: 0.2125 - val_loss: 3.1634 - val_categorical_accuracy: 0.2367
+Epoch 35/40
+287/287 [==============================] - 52s 179ms/step - loss: 3.0635 - categorical_accuracy: 0.2274 - val_loss: 3.1213 - val_categorical_accuracy: 0.2536
+Epoch 36/40
+287/287 [==============================] - 52s 179ms/step - loss: 3.0674 - categorical_accuracy: 0.2269 - val_loss: 3.1362 - val_categorical_accuracy: 0.2491
+Epoch 37/40
+287/287 [==============================] - 51s 179ms/step - loss: 3.0488 - categorical_accuracy: 0.2357 - val_loss: 3.1109 - val_categorical_accuracy: 0.2527
+Epoch 38/40
+287/287 [==============================] - 52s 179ms/step - loss: 3.0450 - categorical_accuracy: 0.2313 - val_loss: 3.1201 - val_categorical_accuracy: 0.2456
+Epoch 39/40
+287/287 [==============================] - 52s 180ms/step - loss: 3.0302 - categorical_accuracy: 0.2354 - val_loss: 3.1004 - val_categorical_accuracy: 0.2500
+Epoch 40/40
+287/287 [==============================] - 52s 179ms/step - loss: 3.0313 - categorical_accuracy: 0.2384 - val_loss: 3.1256 - val_categorical_accuracy: 0.2500
+Epoch 1/40
+287/287 [==============================] - 64s 219ms/step - loss: 3.2592 - categorical_accuracy: 0.1825 - val_loss: 3.0614 - val_categorical_accuracy: 0.2251
+Epoch 2/40
+287/287 [==============================] - 62s 216ms/step - loss: 2.9768 - categorical_accuracy: 0.2417 - val_loss: 2.9454 - val_categorical_accuracy: 0.2785
+Epoch 3/40
+287/287 [==============================] - 63s 217ms/step - loss: 2.7968 - categorical_accuracy: 0.2851 - val_loss: 2.8588 - val_categorical_accuracy: 0.2998
+Epoch 4/40
+287/287 [==============================] - 62s 216ms/step - loss: 2.7218 - categorical_accuracy: 0.2993 - val_loss: 2.8053 - val_categorical_accuracy: 0.3167
+Epoch 5/40
+287/287 [==============================] - 62s 216ms/step - loss: 2.5438 - categorical_accuracy: 0.3413 - val_loss: 2.9060 - val_categorical_accuracy: 0.2874
+Epoch 6/40
+287/287 [==============================] - 62s 216ms/step - loss: 2.4135 - categorical_accuracy: 0.3764 - val_loss: 2.6815 - val_categorical_accuracy: 0.3496
+Epoch 7/40
+287/287 [==============================] - 62s 217ms/step - loss: 2.3032 - categorical_accuracy: 0.3991 - val_loss: 2.7502 - val_categorical_accuracy: 0.3327
+Epoch 8/40
+287/287 [==============================] - 62s 216ms/step - loss: 2.2196 - categorical_accuracy: 0.4156 - val_loss: 2.6490 - val_categorical_accuracy: 0.3541
+Epoch 9/40
+287/287 [==============================] - 62s 216ms/step - loss: 2.0978 - categorical_accuracy: 0.4422 - val_loss: 2.5537 - val_categorical_accuracy: 0.3639
+Epoch 10/40
+287/287 [==============================] - 62s 217ms/step - loss: 1.9969 - categorical_accuracy: 0.4716 - val_loss: 2.5740 - val_categorical_accuracy: 0.3817
+Epoch 11/40
+287/287 [==============================] - 62s 217ms/step - loss: 1.9150 - categorical_accuracy: 0.4947 - val_loss: 2.6143 - val_categorical_accuracy: 0.3541
+Epoch 12/40
+287/287 [==============================] - 62s 216ms/step - loss: 1.8078 - categorical_accuracy: 0.5161 - val_loss: 2.5918 - val_categorical_accuracy: 0.3746
+Epoch 13/40
+287/287 [==============================] - 62s 216ms/step - loss: 1.7980 - categorical_accuracy: 0.5167 - val_loss: 2.6710 - val_categorical_accuracy: 0.3532
+Epoch 14/40
+287/287 [==============================] - 62s 217ms/step - loss: 1.7432 - categorical_accuracy: 0.5348 - val_loss: 2.5737 - val_categorical_accuracy: 0.3817
+Epoch 15/40
+287/287 [==============================] - 62s 216ms/step - loss: 1.6143 - categorical_accuracy: 0.5647 - val_loss: 2.8725 - val_categorical_accuracy: 0.3292
+Epoch 16/40
+287/287 [==============================] - 62s 216ms/step - loss: 1.6088 - categorical_accuracy: 0.5652 - val_loss: 2.5708 - val_categorical_accuracy: 0.3826
+Epoch 17/40
+287/287 [==============================] - 62s 216ms/step - loss: 1.4992 - categorical_accuracy: 0.5949 - val_loss: 2.5041 - val_categorical_accuracy: 0.4110
+Epoch 18/40
+287/287 [==============================] - 62s 217ms/step - loss: 1.4506 - categorical_accuracy: 0.6113 - val_loss: 2.4537 - val_categorical_accuracy: 0.4110
+Epoch 19/40
+287/287 [==============================] - 62s 216ms/step - loss: 1.3806 - categorical_accuracy: 0.6240 - val_loss: 2.4459 - val_categorical_accuracy: 0.4315
+Epoch 20/40
+287/287 [==============================] - 62s 217ms/step - loss: 1.2963 - categorical_accuracy: 0.6508 - val_loss: 2.5692 - val_categorical_accuracy: 0.3959
+Epoch 21/40
+287/287 [==============================] - 62s 216ms/step - loss: 1.2247 - categorical_accuracy: 0.6675 - val_loss: 2.5795 - val_categorical_accuracy: 0.3835
+Epoch 22/40
+287/287 [==============================] - 62s 216ms/step - loss: 1.1389 - categorical_accuracy: 0.6914 - val_loss: 2.5486 - val_categorical_accuracy: 0.4110
+Epoch 23/40
+287/287 [==============================] - 62s 216ms/step - loss: 1.1131 - categorical_accuracy: 0.7000 - val_loss: 2.5024 - val_categorical_accuracy: 0.4324
+Epoch 24/40
+287/287 [==============================] - 62s 216ms/step - loss: 1.0677 - categorical_accuracy: 0.7129 - val_loss: 2.7051 - val_categorical_accuracy: 0.4004
+Epoch 25/40
+287/287 [==============================] - 62s 217ms/step - loss: 0.9821 - categorical_accuracy: 0.7366 - val_loss: 2.5311 - val_categorical_accuracy: 0.4324
+Epoch 26/40
+287/287 [==============================] - 62s 216ms/step - loss: 0.9202 - categorical_accuracy: 0.7544 - val_loss: 2.5217 - val_categorical_accuracy: 0.4306
+Epoch 27/40
+287/287 [==============================] - 62s 216ms/step - loss: 0.8830 - categorical_accuracy: 0.7640 - val_loss: 2.6399 - val_categorical_accuracy: 0.4164
+Epoch 28/40
+287/287 [==============================] - 62s 216ms/step - loss: 0.8516 - categorical_accuracy: 0.7778 - val_loss: 2.5910 - val_categorical_accuracy: 0.4288
+Epoch 29/40
+287/287 [==============================] - 62s 217ms/step - loss: 0.8191 - categorical_accuracy: 0.7814 - val_loss: 2.5998 - val_categorical_accuracy: 0.4297
+Epoch 30/40
+287/287 [==============================] - 62s 216ms/step - loss: 0.7439 - categorical_accuracy: 0.8082 - val_loss: 2.6271 - val_categorical_accuracy: 0.4324
+Epoch 31/40
+287/287 [==============================] - 62s 216ms/step - loss: 0.7245 - categorical_accuracy: 0.8093 - val_loss: 2.5786 - val_categorical_accuracy: 0.4244
+Epoch 32/40
+287/287 [==============================] - 62s 217ms/step - loss: 0.6660 - categorical_accuracy: 0.8284 - val_loss: 2.6125 - val_categorical_accuracy: 0.4315
+Epoch 33/40
+287/287 [==============================] - 62s 216ms/step - loss: 0.6604 - categorical_accuracy: 0.8273 - val_loss: 2.5861 - val_categorical_accuracy: 0.4306
+Epoch 34/40
+287/287 [==============================] - 62s 216ms/step - loss: 0.6074 - categorical_accuracy: 0.8427 - val_loss: 2.5874 - val_categorical_accuracy: 0.4315
+Epoch 35/40
+287/287 [==============================] - 62s 216ms/step - loss: 0.6310 - categorical_accuracy: 0.8320 - val_loss: 2.6471 - val_categorical_accuracy: 0.4395
+Epoch 36/40
+287/287 [==============================] - 62s 216ms/step - loss: 0.5757 - categorical_accuracy: 0.8522 - val_loss: 2.6268 - val_categorical_accuracy: 0.4288
+Epoch 37/40
+287/287 [==============================] - 62s 216ms/step - loss: 0.6040 - categorical_accuracy: 0.8397 - val_loss: 2.6780 - val_categorical_accuracy: 0.4315
+Epoch 38/40
+287/287 [==============================] - 63s 217ms/step - loss: 0.5496 - categorical_accuracy: 0.8609 - val_loss: 2.6168 - val_categorical_accuracy: 0.4351
+Epoch 39/40
+287/287 [==============================] - 62s 216ms/step - loss: 0.5014 - categorical_accuracy: 0.8707 - val_loss: 2.6313 - val_categorical_accuracy: 0.4457
+Epoch 40/40
+287/287 [==============================] - 62s 216ms/step - loss: 0.4653 - categorical_accuracy: 0.8816 - val_loss: 2.6222 - val_categorical_accuracy: 0.4555
+WARNING:absl:Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 5 of 26). These functions will not be directly callable after loading.
+C:\Users\pc\PycharmProjects\TS_GPU_REU\Models\Chalkboard.py:221: UserWarning: `Model.predict_generator` is deprecated and will be removed in a future version. Please use `Model.predict`, which supports generators.
+  preds = model2.predict_generator(test_generator, verbose=1)
+1198/1198 [==============================] - 19s 15ms/step
+D:/REU/My Data v.5/split_data/test/Abelisaurus skeleton/110.deardg-0dfc227a-f868-4fe6-9cbf-37fb914001ec.jpg Oviraptor skeleton
+D:/REU/My Data v.5/split_data/test/Abelisaurus skeleton/119.mev-10850797.jpg Abelisaurus skeleton
+D:/REU/My Data v.5/split_data/test/Abelisaurus skeleton/167.allosaurus.jpg Carnotaurus skeleton
+D:/REU/My Data v.5/split_data/test/Abelisaurus skeleton/168.dinodigtrex-4.jpg Dilophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Abelisaurus skeleton/173.eoabelisaurus-mefi_b9f3.jpg Tarbosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Abelisaurus skeleton/175.velociraptor-skull-3d-print-upper-cretaceous-mongolia-scaled.jpg Tyrannosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Abelisaurus skeleton/188.natural_museum___buenos_aires___argentina_058_by_mechanic_star_da6jpb8-fullview.jpg Velociraptor skeleton
+D:/REU/My Data v.5/split_data/test/Abelisaurus skeleton/230.viavenator-quilmesaurus-aucasaurus-lythronax-abelisaurus-png-favpng-gyyfhag0ws0cuxm2jgkkcjtmg.jpg Sinosauropteryx skeleton
+D:/REU/My Data v.5/split_data/test/Abelisaurus skeleton/235.natural_museum___buenos_aires___argentina_052_by_mechanic_star_da6jp2s-fullview.jpg Tarbosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Abelisaurus skeleton/237.157-1578764_dinosaurs-clipart-dinosaur-bone-dinosaur-skeleton-png-transparent.png Elaphrosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Abelisaurus skeleton/264.ehgk4mzxgaihldo.jpg Carnotaurus skeleton
+D:/REU/My Data v.5/split_data/test/Abelisaurus skeleton/8.skulls-of-abelisauridae-a-abelisaurus-comahuensis-bonaparte-and-novas-modified-from_q640.jpg Abelisaurus skeleton
+D:/REU/My Data v.5/split_data/test/Abelisaurus skeleton/abelisaurusfossil35.jpeg Megalosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Abelisaurus skeleton/abelisaurusfossil9.jpeg Giganotosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Abelisaurus skeleton/abelisaurusskeleton36.jpeg Abelisaurus skeleton
+D:/REU/My Data v.5/split_data/test/Abelisaurus skeleton/abelisaurusskeleton74.jpeg Carcharodontosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Abelisaurus skeleton/abelisaurusskeleton75.jpeg Tarbosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Abelisaurus skeleton/abelisaurusskull35.jpeg Abelisaurus skeleton
+D:/REU/My Data v.5/split_data/test/Acrocanthosaurus skeleton/103.imgbin-carcharodontosaurus-tyrannosaurus-allosaurus-acrocanthosaurus-eocarcharia-dinosaur-cvrlnry99d4tkl79lb6d8mwsk.jpg Carnotaurus skeleton
+D:/REU/My Data v.5/split_data/test/Acrocanthosaurus skeleton/120.extinct-tour.png Abelisaurus skeleton
+D:/REU/My Data v.5/split_data/test/Acrocanthosaurus skeleton/172.c_5ecrbw0aa_0-j.jpg Teratophoneus skeleton
+D:/REU/My Data v.5/split_data/test/Acrocanthosaurus skeleton/178.img_7849_e16234d7-09fe-425d-9436-cc2b3e9e4eea.jpg Dilophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Acrocanthosaurus skeleton/189.4439274257135382938.jpg Acrocanthosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Acrocanthosaurus skeleton/237.png-transparent-tyrannosaurus-primal-carnage-extinction-acrocanthosaurus-dinosaur-dinosaur-tyrannosaurus-fauna-wildlife-thumbnail.png Abelisaurus skeleton
+D:/REU/My Data v.5/split_data/test/Acrocanthosaurus skeleton/66.dsc01093275624639.jpg Torvosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Acrocanthosaurus skeleton/76.skeleton-saurischia-human-sauropsida-art.jpg Carnotaurus skeleton
+D:/REU/My Data v.5/split_data/test/Acrocanthosaurus skeleton/Acrocanthosaurusfossil12.jpeg Acrocanthosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Acrocanthosaurus skeleton/Acrocanthosaurusfossil9.png Acrocanthosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Acrocanthosaurus skeleton/Acrocanthosaurusskull18.jpeg Acrocanthosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Acrocanthosaurus skeleton/Acrocanthosaurusskull20.jpeg Acrocanthosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Acrocanthosaurus skeleton/Acrocanthosaurusskull36.jpeg Acrocanthosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Acrocanthosaurus skeleton/Acrocanthosaurusskull56.png Carnotaurus skeleton
+D:/REU/My Data v.5/split_data/test/Acrocanthosaurus skeleton/Acrocanthosaurusskull75.jpeg Yangchuanosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Acrocanthosaurus skeleton/Acrocanthosaurusskull77.png Suchomimus skeleton
+D:/REU/My Data v.5/split_data/test/Albertosaurus skeleton/110.tyrannosaurus_rex_with_skeleton_fossil_rigged_collection_for_cinema_4d_c4d.jpg3145ee38-558b-4a7a-a5a2-1d8c4216f7d5large.jpg Acrocanthosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Albertosaurus skeleton/111.310x190_squelette-centrosaurus-albertosaurus-exposes-royal-tyrrell-museum-canada-illustration.jpg Acrocanthosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Albertosaurus skeleton/120.26387959.jpg Megalosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Albertosaurus skeleton/133.23169.jpg Acrocanthosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Albertosaurus skeleton/168.albertosaurus-image-2.jpg Acrocanthosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Albertosaurus skeleton/17.albertosaurus_clean.png Giganotosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Albertosaurus skeleton/174.pp,840x830-pad,1000x1000,f8f8f8.u1.jpg Acrocanthosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Albertosaurus skeleton/179.acx-acp67182.jpg Concavenator skeleton
+D:/REU/My Data v.5/split_data/test/Albertosaurus skeleton/191.albertosauruskrb.jpg Acrocanthosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Albertosaurus skeleton/232.albertotypesk.jpg Spinosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Albertosaurus skeleton/236.tr_cp_drumheller_alberta_3.jpg Acrocanthosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Albertosaurus skeleton/251.albertosaurus_skeleton_cast_2.jpg Baryonyx skeleton
+D:/REU/My Data v.5/split_data/test/Albertosaurus skeleton/265.design-toscano-garden-statues-jq6481-64_600.jpg Utahraptor skeleton
+D:/REU/My Data v.5/split_data/test/Albertosaurus skeleton/265.trex_skeleton_crew_htc_vivearts_editorial_2.jpg Torvosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Albertosaurus skeleton/268.angry-t-rex-skeleton-framed-painting-print-multi-color-fd26b8c5-36f7-4829-97ef-a3b9092850d2.jpg.jpg Dromaeosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Albertosaurus skeleton/278.magnet-03_300x300.jpg Giganotosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Albertosaurus skeleton/284.9781784456856.jpg Tyrannosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Albertosaurus skeleton/301.81g0wm7f%2bfl._ac_sl1500_.jpg Concavenator skeleton
+D:/REU/My Data v.5/split_data/test/Albertosaurus skeleton/312.wired_design-fx-walking-with-dinosaurs-muscle-simulation-and-feathered-effects-exclusive.jpg Acrocanthosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Albertosaurus skeleton/322.mtbyndino_sumoflam1_620x300.jpg Abelisaurus skeleton
+D:/REU/My Data v.5/split_data/test/Albertosaurus skeleton/327.1564895169425538.jpg Gorgosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Albertosaurus skeleton/335.lop-jbo1020902.jpg Albertosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Albertosaurus skeleton/66.albertosaurus_skeleton__dinosaur_research_center__by_zap123build_d7od0hk-fullview.jpg Gorgosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Alioramus skeleton/122.wright_alioramus.jpg Dromaeosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Alioramus skeleton/124.eyommz7x0aaclos.jpg Albertosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Alioramus skeleton/187.alioramus_by_jelsin-d5bzbfo_ae4f.jpg Acrocanthosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Alioramus skeleton/19.the-anatomy-of-tyrannosaurs-showing-the-variety-of-skeletal-and-cranial-morphology-in_q640.jpg Dilophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Alioramus skeleton/194.raptorex-ilium1.jpg Megalosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Alioramus skeleton/202.nanotyrannus%2bholotype%2b%2528dalman%2bet%2bal.%252c%2b2018%252c%2bfigure%2b15%2bd%2529.png Albertosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Alioramus skeleton/213.alioramus-dinisaur-front-remotus-was-theropod-carnivorous-dinosaur-lived-mongolia-cretaceous-period-208766420.jpg Gorgosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Alioramus skeleton/214.dinosaursextinct.jpg Gorgosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Alioramus skeleton/240.nanotyrannus%2b%2528jurassic%2bfight%2bclub%2529.jpg Gorgosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Alioramus skeleton/80.41559_2019_888_fig2_html.png Carnotaurus skeleton
+D:/REU/My Data v.5/split_data/test/Alioramus skeleton/94.gdhpidfdz.jpeg Albertosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Alioramus skeleton/Alioramusfossil31.jpeg Tarbosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Alioramus skeleton/Alioramusfossil36.png Coelophysis skeleton
+D:/REU/My Data v.5/split_data/test/Alioramus skeleton/Alioramusfossil49.jpeg Utahraptor skeleton
+D:/REU/My Data v.5/split_data/test/Alioramus skeleton/Alioramusfossil62.png Giganotosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Alioramus skeleton/Alioramusfossil75.jpeg Concavenator skeleton
+D:/REU/My Data v.5/split_data/test/Alioramus skeleton/Alioramusskeleton53.png Irritator skeleton
+D:/REU/My Data v.5/split_data/test/Alioramus skeleton/Alioramusskull74.jpeg Neovenator skeleton
+D:/REU/My Data v.5/split_data/test/Alioramus skeleton/Alioramusskull75.png Carcharodontosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Allosaurus skeleton/140..jpg Neovenator skeleton
+D:/REU/My Data v.5/split_data/test/Allosaurus skeleton/147.allosaurus2019.jpg Concavenator skeleton
+D:/REU/My Data v.5/split_data/test/Allosaurus skeleton/167.eb-ja8kxgae-iec.jpg Tyrannosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Allosaurus skeleton/68.paleontologist-james-madsen-jr-assembles-a-composite-skeleton-of-allosaurus-from-the-cleveland-lloyd-dinosaur-quarry-credit-university-of-utah-marriott-library.jpg Alioramus skeleton
+D:/REU/My Data v.5/split_data/test/Allosaurus skeleton/Allosaurusfossil16.jpeg Alioramus skeleton
+D:/REU/My Data v.5/split_data/test/Allosaurus skeleton/Allosaurusfossil36.jpeg Alioramus skeleton
+D:/REU/My Data v.5/split_data/test/Allosaurus skeleton/Allosaurusfossil38.jpeg Oviraptor skeleton
+D:/REU/My Data v.5/split_data/test/Allosaurus skeleton/Allosaurusfossil43.jpeg Tyrannosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Allosaurus skeleton/Allosaurusfossil51.jpeg Torvosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Allosaurus skeleton/Allosaurusskull17.jpeg Abelisaurus skeleton
+D:/REU/My Data v.5/split_data/test/Allosaurus skeleton/Allosaurusskull63.jpeg Dilophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Allosaurus skeleton/Allosaurusskull8.jpeg Dilophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Allosaurus skeleton/Allosaurusskull99.jpeg Albertosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Archaeornithomimus skeleton/146.ebdb8liucaawmfw.jpg Carnotaurus skeleton
+D:/REU/My Data v.5/split_data/test/Archaeornithomimus skeleton/154.9462525_450_450_4767_0_fill_0_910522c648342999c09cfa2ff0572e40.jpg Alioramus skeleton
+D:/REU/My Data v.5/split_data/test/Archaeornithomimus skeleton/Archaeornithomimusfossil21.jpeg Abelisaurus skeleton
+D:/REU/My Data v.5/split_data/test/Archaeornithomimus skeleton/Archaeornithomimusfossil25.png Sinraptor skeleton
+D:/REU/My Data v.5/split_data/test/Archaeornithomimus skeleton/Archaeornithomimusfossil27.png Alioramus skeleton
+D:/REU/My Data v.5/split_data/test/Archaeornithomimus skeleton/Archaeornithomimusfossil30.png Torvosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Archaeornithomimus skeleton/Archaeornithomimusfossil93.png Alioramus skeleton
+D:/REU/My Data v.5/split_data/test/Archaeornithomimus skeleton/Archaeornithomimusskeleton52.jpeg Alioramus skeleton
+D:/REU/My Data v.5/split_data/test/Archaeornithomimus skeleton/Archaeornithomimusskeleton75.jpeg Tyrannosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Archaeornithomimus skeleton/Archaeornithomimusskull13.jpeg Alioramus skeleton
+D:/REU/My Data v.5/split_data/test/Archaeornithomimus skeleton/Archaeornithomimusskull67.jpeg Ornithomimus skeleton
+D:/REU/My Data v.5/split_data/test/Austroraptor skeleton/108.megaraptorwc-56a253c63df78cf77274776d.jpg Alioramus skeleton
+D:/REU/My Data v.5/split_data/test/Austroraptor skeleton/121.hqdefault.jpg Dromaeosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Austroraptor skeleton/124.plate.png Teratophoneus skeleton
+D:/REU/My Data v.5/split_data/test/Austroraptor skeleton/127.byronosaurus.jpg Tarbosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Austroraptor skeleton/182.sd+3.jpg Alioramus skeleton
+D:/REU/My Data v.5/split_data/test/Austroraptor skeleton/19.20363161590_bc3f527b83_b.jpg Abelisaurus skeleton
+D:/REU/My Data v.5/split_data/test/Austroraptor skeleton/195.swordlord-austroraptor-the-sto-4-488e9d1c-lmkh.jpg Albertosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Austroraptor skeleton/202.austroraptor_2_by_lycanthroefx_d2f3wvn-350t.jpg Dromaeosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Austroraptor skeleton/205.tumblr_pbcr45q1tf1vgbr0oo1_1280.png Lythronax skeleton
+D:/REU/My Data v.5/split_data/test/Austroraptor skeleton/208.maxresdefault.jpg Yangchuanosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Austroraptor skeleton/231.austroraptor-info.jpg Acrocanthosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Austroraptor skeleton/57.austroraptor_588.jpg Allosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Austroraptor skeleton/8.51e3b09de99dd7d3735ea1ad9ca809fa.jpg Allosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Austroraptor skeleton/87.ertb1nlueaacpi3.jpg Microraptor skeleton
+D:/REU/My Data v.5/split_data/test/Austroraptor skeleton/Austoraptorfossil30.jpeg Allosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Austroraptor skeleton/Austoraptorskeleton74.png Daspletosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Austroraptor skeleton/Austoraptorskeleton98.png Allosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Austroraptor skeleton/Austoraptorskull56.jpeg Megalosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Austroraptor skeleton/Austoraptorskull80.jpeg Gorgosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Bambiraptor skeleton/123.kisspng-primal-carnage-extinction-velociraptor-tyrannosau-5ae4c40bd42959.5352334815249418358691.jpg Baryonyx skeleton
+D:/REU/My Data v.5/split_data/test/Bambiraptor skeleton/181.ep-191119925.jpg Lythronax skeleton
+D:/REU/My Data v.5/split_data/test/Bambiraptor skeleton/199.kisspng-velociraptor-deinonychus-bambiraptor-dinosaur-rept-5b13259c7548f3.3633387315279814684804.jpg Allosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Bambiraptor skeleton/21.sulbambiraptor.jpg Allosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Bambiraptor skeleton/227.1170x747xfirst-dinosaur-encyclopedia-dk-the-dinosaur-farm-insert-1170x747.jpg.pagespeed.ic.fflzmrsjef.jpg Torvosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Bambiraptor skeleton/46.1435209983.lizardman222_bambiraptor_01.jpg Allosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Bambiraptor skeleton/94.s-l200.jpg Allosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Bambiraptor skeleton/95.canon-papercraft-dinosaur-bambiraptor.jpg Dilophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Bambiraptor skeleton/97.27614f999318ce99daed0f79278572f0.jpg Tyrannosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Bambiraptor skeleton/Bambiraptorfossil19.jpeg Allosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Bambiraptor skeleton/Bambiraptorfossil33.jpeg Tyrannosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Bambiraptor skeleton/Bambiraptorfossil7.jpeg Archaeornithomimus skeleton
+D:/REU/My Data v.5/split_data/test/Baryonyx skeleton/105.bary-left-web.jpg Ornithomimus skeleton
+D:/REU/My Data v.5/split_data/test/Baryonyx skeleton/117.thumbnail_img-20200911-wa0042_525x700.jpg Ornithomimus skeleton
+D:/REU/My Data v.5/split_data/test/Baryonyx skeleton/120.therizinosaurus-dinosaur-side-profile-588609242-5c7e812e46e0fb00018bd8a7.jpg Archaeornithomimus skeleton
+D:/REU/My Data v.5/split_data/test/Baryonyx skeleton/123.png-transparent-giganotosaurus-spinosaurus-carcharodontosaurus-allosaurus-baryonyx-carnivore-text-tyrannosaurus-spinosaurus.png Archaeornithomimus skeleton
+D:/REU/My Data v.5/split_data/test/Baryonyx skeleton/126.life-size-replica-of-baryonyx-dinosaur-replica-of-hypsilophodon-dinosaur-j4nn3j.jpg Archaeornithomimus skeleton
+D:/REU/My Data v.5/split_data/test/Baryonyx skeleton/175.baryonyx.jpg Archaeornithomimus skeleton
+D:/REU/My Data v.5/split_data/test/Baryonyx skeleton/187.new_wealden_dinosaurs_slide_15-6-2009.jpg Archaeornithomimus skeleton
+D:/REU/My Data v.5/split_data/test/Baryonyx skeleton/193.mev-10709919.jpg Ornithomimus skeleton
+D:/REU/My Data v.5/split_data/test/Baryonyx skeleton/233.ajkaceratops-kozmai-dinosaur-skull.jpg Oviraptor skeleton
+D:/REU/My Data v.5/split_data/test/Baryonyx skeleton/237.cristatusaurus_skeletal_by_paleogeek.png Ornithomimus skeleton
+D:/REU/My Data v.5/split_data/test/Baryonyx skeleton/267.shutterstock_1134112100.jpg Ornithomimus skeleton
+D:/REU/My Data v.5/split_data/test/Baryonyx skeleton/289.baryonyx_sonolento.png.jpg Archaeornithomimus skeleton
+D:/REU/My Data v.5/split_data/test/Baryonyx skeleton/299.wr8lnwvm_o.png Albertosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Baryonyx skeleton/319.gettyimages-594381095-5c4a2dc946e0fb0001327ea1.jpg Gallimimus skeleton
+D:/REU/My Data v.5/split_data/test/Baryonyx skeleton/45.spinosaurus-tyrannosaurus-suchomimus-ichthyovenator-baryonyx-png-favpng-5ncweh4g5ptgsiharwsqrhayk.jpg Ornithomimus skeleton
+D:/REU/My Data v.5/split_data/test/Baryonyx skeleton/90.baryposter.jpg Ornithomimus skeleton
+D:/REU/My Data v.5/split_data/test/Baryonyx skeleton/Baryonyxfossil55.jpeg Ornithomimus skeleton
+D:/REU/My Data v.5/split_data/test/Baryonyx skeleton/Baryonyxskeleton60.jpeg Acrocanthosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Baryonyx skeleton/Baryonyxskeleton85.jpeg Austroraptor skeleton
+D:/REU/My Data v.5/split_data/test/Baryonyx skeleton/Baryonyxskeleton87.jpeg Irritator skeleton
+D:/REU/My Data v.5/split_data/test/Baryonyx skeleton/Baryonyxskeleton97.jpeg Alioramus skeleton
+D:/REU/My Data v.5/split_data/test/Baryonyx skeleton/Baryonyxskull29.jpeg Chirostenotes skeleton
+D:/REU/My Data v.5/split_data/test/Baryonyx skeleton/Baryonyxskull50.jpeg Ornithomimus skeleton
+D:/REU/My Data v.5/split_data/test/Baryonyx skeleton/Baryonyxskull83.jpeg Carcharodontosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Buitreraptor skeleton/116.buitreraptor_gonzalezorum_by_thedubstepaddict_db6mvq5-350t.jpg Carnotaurus skeleton
+D:/REU/My Data v.5/split_data/test/Buitreraptor skeleton/118.220px-buitreraptor_nt.jpg Irritator skeleton
+D:/REU/My Data v.5/split_data/test/Buitreraptor skeleton/164.bambiraptor-651670e1-abac-4137-ac55-82e4ca76cf3-resize-750.jpg Buitreraptor skeleton
+D:/REU/My Data v.5/split_data/test/Buitreraptor skeleton/165.tapestry,720x-pad,600x600,f8f8f8.jpg Sinornithosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Buitreraptor skeleton/172.aurornis-5886.jpg Megalosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Buitreraptor skeleton/179.gbrf,10x8,f,540x540-pad,450x450,f8f8f8.jpg Austroraptor skeleton
+D:/REU/My Data v.5/split_data/test/Buitreraptor skeleton/194.c007cb1f0ecaa2a94be44c2c323948ca.jpg Austroraptor skeleton
+D:/REU/My Data v.5/split_data/test/Buitreraptor skeleton/56.dieohgbhfhz.jpeg Compsognathus skeleton
+D:/REU/My Data v.5/split_data/test/Buitreraptor skeleton/Buitreraptorfossil55.png Buitreraptor skeleton
+D:/REU/My Data v.5/split_data/test/Buitreraptor skeleton/Buitreraptorfossil65.jpeg Austroraptor skeleton
+D:/REU/My Data v.5/split_data/test/Buitreraptor skeleton/Buitreraptorfossil96.jpeg Lythronax skeleton
+D:/REU/My Data v.5/split_data/test/Buitreraptor skeleton/Buitreraptorskeleton26.jpeg Austroraptor skeleton
+D:/REU/My Data v.5/split_data/test/Buitreraptor skeleton/Buitreraptorskeleton62.jpeg Austroraptor skeleton
+D:/REU/My Data v.5/split_data/test/Buitreraptor skeleton/Buitreraptorskeleton63.jpeg Austroraptor skeleton
+D:/REU/My Data v.5/split_data/test/Carcharodontosaurus skeleton/110.carcharodontosaurus-iguidensis-prehistoric-era-13005381.jpg.jpg Deinonychus skeleton
+D:/REU/My Data v.5/split_data/test/Carcharodontosaurus skeleton/116.dinobattle.png Austroraptor skeleton
+D:/REU/My Data v.5/split_data/test/Carcharodontosaurus skeleton/117.8a651553c794f6e4c84f9c64079002f0.jpg Austroraptor skeleton
+D:/REU/My Data v.5/split_data/test/Carcharodontosaurus skeleton/161.s-l400.jpg Dromaeosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Carcharodontosaurus skeleton/169.dscn1019.jpg Coelophysis skeleton
+D:/REU/My Data v.5/split_data/test/Carcharodontosaurus skeleton/175.201704011628284997.jpg Compsognathus skeleton
+D:/REU/My Data v.5/split_data/test/Carcharodontosaurus skeleton/210.foramina-spino-rex.png Allosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Carcharodontosaurus skeleton/49.png-transparent-carcharodontosaurus-tyrannosaurus-allosaurus-acrocanthosaurus-eocarcharia-dinosaur-tyrannosaurus-wildlife-fictional-character.png Austroraptor skeleton
+D:/REU/My Data v.5/split_data/test/Carcharodontosaurus skeleton/64.pnso-gamba-the-carcharodontosaurus-skeletal-measurements.jpg Bambiraptor skeleton
+D:/REU/My Data v.5/split_data/test/Carcharodontosaurus skeleton/74.kisspng-tyrannosaurus-carcharodontosaurus-triceratops-giga-5af1cc2af12587.6698395715257958829878.jpg Bambiraptor skeleton
+D:/REU/My Data v.5/split_data/test/Carcharodontosaurus skeleton/99.carcharodontosaurus_scale.png Sinornithosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Carcharodontosaurus skeleton/Carcharodontosaurusskeleton35.png Bambiraptor skeleton
+D:/REU/My Data v.5/split_data/test/Carcharodontosaurus skeleton/Carcharodontosaurusskeleton53.jpeg Bambiraptor skeleton
+D:/REU/My Data v.5/split_data/test/Carcharodontosaurus skeleton/Carcharodontosaurusskeleton63.jpeg Tyrannosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Carcharodontosaurus skeleton/Carcharodontosaurusskeleton7.png Bambiraptor skeleton
+D:/REU/My Data v.5/split_data/test/Carcharodontosaurus skeleton/Carcharodontosaurusskeleton77.jpeg Ornitholestes skeleton
+D:/REU/My Data v.5/split_data/test/Carcharodontosaurus skeleton/Carcharodontosaurusskull19.jpeg Deinonychus skeleton
+D:/REU/My Data v.5/split_data/test/Carnotaurus skeleton/115.carnotaurus.jpg Bambiraptor skeleton
+D:/REU/My Data v.5/split_data/test/Carnotaurus skeleton/124.b175c42a-86ed-44f5-880f894784b33b1f.jpg Chirostenotes skeleton
+D:/REU/My Data v.5/split_data/test/Carnotaurus skeleton/172.qrhhehrhscx.jpeg Bambiraptor skeleton
+D:/REU/My Data v.5/split_data/test/Carnotaurus skeleton/188.png-transparent-carcharodontosaurus-giganotosaurus-acrocanthosaurus-mapusaurus-tyrannosaurus-skeleton-mammal-tyrannosaurus-wildlife.png Dromaeosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Carnotaurus skeleton/23.carnotaurus-majungasaurus-skulls.jpg Bambiraptor skeleton
+D:/REU/My Data v.5/split_data/test/Carnotaurus skeleton/278.tyrannosaurus-rex.jpg Velociraptor skeleton
+D:/REU/My Data v.5/split_data/test/Carnotaurus skeleton/298.dd7owcp-6a728f12-1f37-4b03-94b6-cb750cd47d40.jpg Deinonychus skeleton
+D:/REU/My Data v.5/split_data/test/Carnotaurus skeleton/302.2482052c603cb86e0be5eede9043cb013f470157.jpg Velociraptor skeleton
+D:/REU/My Data v.5/split_data/test/Carnotaurus skeleton/310.maxresdefault.jpg Bambiraptor skeleton
+D:/REU/My Data v.5/split_data/test/Carnotaurus skeleton/322.carnotaurus-sastrei-skeleton-study-wallpaper.jpg Tyrannosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Carnotaurus skeleton/350.carnotaurus-skull.jpg Deinonychus skeleton
+D:/REU/My Data v.5/split_data/test/Carnotaurus skeleton/Carnotaurusfossil56.jpeg Bambiraptor skeleton
+D:/REU/My Data v.5/split_data/test/Carnotaurus skeleton/Carnotaurusskeleton12.jpeg Oviraptor skeleton
+D:/REU/My Data v.5/split_data/test/Carnotaurus skeleton/Carnotaurusskeleton58.jpeg Bambiraptor skeleton
+D:/REU/My Data v.5/split_data/test/Carnotaurus skeleton/Carnotaurusskeleton83.jpeg Bambiraptor skeleton
+D:/REU/My Data v.5/split_data/test/Carnotaurus skeleton/Carnotaurusskeleton95.jpeg Bambiraptor skeleton
+D:/REU/My Data v.5/split_data/test/Chirostenotes skeleton/114.citipati_osmolskae_skeleton_study_by_thedragonofdoom_daneslb-250t.jpg Bambiraptor skeleton
+D:/REU/My Data v.5/split_data/test/Chirostenotes skeleton/116.gmklkndlglv.jpeg Bambiraptor skeleton
+D:/REU/My Data v.5/split_data/test/Chirostenotes skeleton/21.epichirostenotes.jpg Bambiraptor skeleton
+D:/REU/My Data v.5/split_data/test/Chirostenotes skeleton/48.cad1d09cfdba19355e66b3e71274d4c2.jpg Austroraptor skeleton
+D:/REU/My Data v.5/split_data/test/Chirostenotes skeleton/Chirostenotesskull17.jpeg Spinosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Chirostenotes skeleton/Chirostenotesskull91.jpeg Sinornithosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Coelophysis skeleton/106.saurophaganax.jpg Yangchuanosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Coelophysis skeleton/121.coelophysis_head.png Coelophysis skeleton
+D:/REU/My Data v.5/split_data/test/Coelophysis skeleton/127.edu0pmyk_400x400.jpg Elaphrosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Coelophysis skeleton/167.ejuzpnywaamdnpj.jpg Baryonyx skeleton
+D:/REU/My Data v.5/split_data/test/Coelophysis skeleton/202.coelophysis-skull-wall-clocks.jpg Oviraptor skeleton
+D:/REU/My Data v.5/split_data/test/Coelophysis skeleton/282.coelophysis_skeleton_01.jpg Megalosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Coelophysis skeleton/285.960x960.jpg Baryonyx skeleton
+D:/REU/My Data v.5/split_data/test/Coelophysis skeleton/Coelophysisfossil83.jpeg Sinocalliopteryx skeleton
+D:/REU/My Data v.5/split_data/test/Coelophysis skeleton/Coelophysisskull24.jpeg Alioramus skeleton
+D:/REU/My Data v.5/split_data/test/Coelophysis skeleton/Coelophysisskull75.jpeg Alioramus skeleton
+D:/REU/My Data v.5/split_data/test/Compsognathus skeleton/102.c52ebfce-01a5-4b27-8f56-b429e98dbcea-2060x1545.jpeg Dilophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Compsognathus skeleton/119.01298478.jpg Baryonyx skeleton
+D:/REU/My Data v.5/split_data/test/Compsognathus skeleton/123.nanmu-studio-jurassic-series-raptor-tactical-team-1-35-scale-dinosaur-statue-set-171001-team-baldwin-10cm.jpg Baryonyx skeleton
+D:/REU/My Data v.5/split_data/test/Compsognathus skeleton/169.450.jpg Acrocanthosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Compsognathus skeleton/178.sph-f0201167.jpg Baryonyx skeleton
+D:/REU/My Data v.5/split_data/test/Compsognathus skeleton/184.psxf3ld5wv041.jpg Tyrannosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Compsognathus skeleton/192.54598145122473.y3jvccwzmziyldi2mdasmzywlda.jpg Baryonyx skeleton
+D:/REU/My Data v.5/split_data/test/Compsognathus skeleton/200.1-1-compsognathus-head-skeleton-animal-model-collector-saurischi.jpg Irritator skeleton
+D:/REU/My Data v.5/split_data/test/Compsognathus skeleton/228.gettyimages-678826707-58dc94fa5f9b584683f35d87-33cccf71f5a64257a503e485a3382d1b.jpg Concavenator skeleton
+D:/REU/My Data v.5/split_data/test/Compsognathus skeleton/43.reconstructions-of-the-skulls-of-juravenator-starki-a-compsognathus-longipes-b-based_q640.jpg Baryonyx skeleton
+D:/REU/My Data v.5/split_data/test/Compsognathus skeleton/79.compsognathus-dinosaur-on-white-background-600w-1260622651.jpg Baryonyx skeleton
+D:/REU/My Data v.5/split_data/test/Compsognathus skeleton/83.68018096.jpg Sinosauropteryx skeleton
+D:/REU/My Data v.5/split_data/test/Compsognathus skeleton/87.phpg6rwen.png Baryonyx skeleton
+D:/REU/My Data v.5/split_data/test/Compsognathus skeleton/92.skeleton-of-claosaur-birdlike-dinosaur-illustration-id1009952726.jpg Baryonyx skeleton
+D:/REU/My Data v.5/split_data/test/Compsognathus skeleton/Compsognathusfossil1.jpeg Sinraptor skeleton
+D:/REU/My Data v.5/split_data/test/Compsognathus skeleton/Compsognathusfossil26.jpeg Baryonyx skeleton
+D:/REU/My Data v.5/split_data/test/Compsognathus skeleton/Compsognathusskull67.jpeg Suchomimus skeleton
+D:/REU/My Data v.5/split_data/test/Compsognathus skeleton/Compsognathusskull9.jpeg Suchomimus skeleton
+D:/REU/My Data v.5/split_data/test/Concavenator skeleton/132.archosauromorpha_evolution.jpg Acrocanthosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Concavenator skeleton/14.concavenator%20skull%20s.jpg Dilophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Concavenator skeleton/192.iipxfgbbbjk-aleeb6zol9e1ryur73azxyacsrgdim0.jpg Baryonyx skeleton
+D:/REU/My Data v.5/split_data/test/Concavenator skeleton/215.ertclwix0aia-ye.jpg Carnotaurus skeleton
+D:/REU/My Data v.5/split_data/test/Concavenator skeleton/32.concavenator-copy.jpg Baryonyx skeleton
+D:/REU/My Data v.5/split_data/test/Concavenator skeleton/34.concavenator%20nt.jpg Baryonyx skeleton
+D:/REU/My Data v.5/split_data/test/Concavenator skeleton/Concavenatorfossil20.jpeg Suchomimus skeleton
+D:/REU/My Data v.5/split_data/test/Concavenator skeleton/Concavenatorfossil38.jpeg Buitreraptor skeleton
+D:/REU/My Data v.5/split_data/test/Concavenator skeleton/Concavenatorfossil73.jpeg Torvosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Concavenator skeleton/Concavenatorskull23.jpeg Coelophysis skeleton
+D:/REU/My Data v.5/split_data/test/Concavenator skeleton/Concavenatorskull9.jpeg Bambiraptor skeleton
+D:/REU/My Data v.5/split_data/test/Daspletosaurus skeleton/106.daspletosaurus.jpg Dilophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Daspletosaurus skeleton/107.img.jpg Neovenator skeleton
+D:/REU/My Data v.5/split_data/test/Daspletosaurus skeleton/11.daspletosaurusblack.jpg Dilophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Daspletosaurus skeleton/125.cjtqqmz.png Megalosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Daspletosaurus skeleton/132.jin-kyeom-kim-.jpg Buitreraptor skeleton
+D:/REU/My Data v.5/split_data/test/Daspletosaurus skeleton/143.ottawa_ds31.jpg Buitreraptor skeleton
+D:/REU/My Data v.5/split_data/test/Daspletosaurus skeleton/172.rocky-mountain-dinosaur.jpg Buitreraptor skeleton
+D:/REU/My Data v.5/split_data/test/Daspletosaurus skeleton/175.9566c430-afcd-48e3-852c-4697d02e7df1.jpg Buitreraptor skeleton
+D:/REU/My Data v.5/split_data/test/Daspletosaurus skeleton/179.daspletosaurus_torosus_fmnh.jpg Microraptor skeleton
+D:/REU/My Data v.5/split_data/test/Daspletosaurus skeleton/185.tyrannosaur_skin_impressions-lite.jpg Buitreraptor skeleton
+D:/REU/My Data v.5/split_data/test/Daspletosaurus skeleton/193.https%3a%2f%2fvms-network-images-prod.s3-ap-southeast-2.amazonaws.com%2f2020%2f02%2f269748%2fpickerimage.jpg Ornitholestes skeleton
+D:/REU/My Data v.5/split_data/test/Daspletosaurus skeleton/51.709907.jpg Coelophysis skeleton
+D:/REU/My Data v.5/split_data/test/Daspletosaurus skeleton/63.daspletosaurus_skull.jpg Buitreraptor skeleton
+D:/REU/My Data v.5/split_data/test/Daspletosaurus skeleton/8.daspletosaurusclean.png Ornithomimus skeleton
+D:/REU/My Data v.5/split_data/test/Daspletosaurus skeleton/93.2775224114_ab125a0046_z.jpg Sinocalliopteryx skeleton
+D:/REU/My Data v.5/split_data/test/Deinonychus skeleton/115.deinonychus.jpg Coelophysis skeleton
+D:/REU/My Data v.5/split_data/test/Deinonychus skeleton/120.%2fdeinonychus_6541-l.jpg Dilophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Deinonychus skeleton/170.17305108889_af214e96c3_c.jpg Buitreraptor skeleton
+D:/REU/My Data v.5/split_data/test/Deinonychus skeleton/174.civoyh2uyaiksdb.jpg Carcharodontosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Deinonychus skeleton/212.deinonychus_antirrhopus.jpg Abelisaurus skeleton
+D:/REU/My Data v.5/split_data/test/Deinonychus skeleton/214.1712-3390-watermark.jpg Carcharodontosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Deinonychus skeleton/243.3430447748_973cae1758_n.jpg Spinosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Deinonychus skeleton/34.deinonychus-by-dinochecker.png Tyrannotitan skeleton
+D:/REU/My Data v.5/split_data/test/Deinonychus skeleton/37.farp,small,wall_texture,product,750x1000.jpg Carcharodontosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Deinonychus skeleton/41.main-ostrom_0.jpg Concavenator skeleton
+D:/REU/My Data v.5/split_data/test/Deinonychus skeleton/47.deinonychus.jpg Abelisaurus skeleton
+D:/REU/My Data v.5/split_data/test/Deinonychus skeleton/78.mp03fdm63t311.jpg Megalosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Deinonychus skeleton/Deinonychusfossil73.jpeg Carcharodontosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Deinonychus skeleton/Deinonychusskull48.jpeg Sinornithosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Deinonychus skeleton/Deinonychusskull66.png Carcharodontosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Deinonychus skeleton/Deinonychusskull68.jpeg Torvosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Deinonychus skeleton/Deinonychusskull75.jpeg Carcharodontosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Dilophosaurus skeleton/163.desdino-trex.jpg Carcharodontosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Dilophosaurus skeleton/181.htb1xkwai3ld8kjjsszeq6ygrpxau.jpg Carcharodontosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Dilophosaurus skeleton/206.dilophosaurus_skeleton_rtmop.jpg Abelisaurus skeleton
+D:/REU/My Data v.5/split_data/test/Dilophosaurus skeleton/220.shutterstock-262574267.jpg Giganotosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Dilophosaurus skeleton/222.dilophosaurus-wetherilli-scutelosaurus-lawleri-4.jpg Spinosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Dilophosaurus skeleton/260.coelophysis_bauri_mount.jpg Carcharodontosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Dilophosaurus skeleton/264.8146993_450_450_7061_0_fill_0_d51922971bb746663b0872ea8b08aa50.jpg Carcharodontosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Dilophosaurus skeleton/265.cryolophosaurus_skullcast_aus.jpg Spinosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Dilophosaurus skeleton/277.3edfpj.jpg Allosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Dilophosaurus skeleton/287.184px-dilophosaurus_paratype_skull.png Carcharodontosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Dilophosaurus skeleton/93.htb1xkwai3ld8kjjsszeq6ygrpxau.jpg_300x300.jpg Carcharodontosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Dilophosaurus skeleton/97.dilophosaurus_scale.png Irritator skeleton
+D:/REU/My Data v.5/split_data/test/Dilophosaurus skeleton/Dilophosaurusskeleton98.png Allosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Dromaeosaurus skeleton/106.1018-gp-a10-dino-e1571341596394.jpg Utahraptor skeleton
+D:/REU/My Data v.5/split_data/test/Dromaeosaurus skeleton/109.dromaeosaurus_st.jpg Alioramus skeleton
+D:/REU/My Data v.5/split_data/test/Dromaeosaurus skeleton/138.dromaeosaurus.jpg Carnotaurus skeleton
+D:/REU/My Data v.5/split_data/test/Dromaeosaurus skeleton/14.dromaeosaurus_skull_detail_royal_tyrrell.jpg Tyrannotitan skeleton
+D:/REU/My Data v.5/split_data/test/Dromaeosaurus skeleton/143.dinosaur-images-095-resize.jpg Carnotaurus skeleton
+D:/REU/My Data v.5/split_data/test/Dromaeosaurus skeleton/148.8238726433_7ea627a884_b.jpg Carnotaurus skeleton
+D:/REU/My Data v.5/split_data/test/Dromaeosaurus skeleton/35.dromaeosaurus_skeleton.jpg Acrocanthosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Dromaeosaurus skeleton/46.dromaeosaurus45834.jpg Carnotaurus skeleton
+D:/REU/My Data v.5/split_data/test/Dromaeosaurus skeleton/Dromaeosaurusskeleton37.jpeg Concavenator skeleton
+D:/REU/My Data v.5/split_data/test/Dromaeosaurus skeleton/Dromaeosaurusskull29.jpeg Carnotaurus skeleton
+D:/REU/My Data v.5/split_data/test/Dromaeosaurus skeleton/Dromaeosaurusskull5.jpeg Acrocanthosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Dromaeosaurus skeleton/Dromaeosaurusskull50.jpeg Carnotaurus skeleton
+D:/REU/My Data v.5/split_data/test/Dromaeosaurus skeleton/Dromaeosaurusskull91.jpeg Abelisaurus skeleton
+D:/REU/My Data v.5/split_data/test/Elaphrosaurus skeleton/106.mandible-of-a-cuban-crocodile-crocodylus-rhombifer-from-sawmill-sink-nmbab50171_q320.jpg Carnotaurus skeleton
+D:/REU/My Data v.5/split_data/test/Elaphrosaurus skeleton/132.ss2737158.jpg Tarbosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Elaphrosaurus skeleton/144.dbo0py4-5379a67d-d253-42b7-b289-b1b9fd5e42ba.png Teratophoneus skeleton
+D:/REU/My Data v.5/split_data/test/Elaphrosaurus skeleton/232.unenlagia-comahuensis-274x400.jpeg Carnotaurus skeleton
+D:/REU/My Data v.5/split_data/test/Elaphrosaurus skeleton/241.ceratosaurus-589e09175f9b58819cd603b1.jpg Carcharodontosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Elaphrosaurus skeleton/245.mqdefault.jpg Spinosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Elaphrosaurus skeleton/249.spino%2btest%2bwitton.jpg Monolophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Elaphrosaurus skeleton/70.img_0406.jpg Dilophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Elaphrosaurus skeleton/Elaphrosaurusfossil35.jpeg Carnotaurus skeleton
+D:/REU/My Data v.5/split_data/test/Elaphrosaurus skeleton/Elaphrosaurusskeleton12.jpeg Carnotaurus skeleton
+D:/REU/My Data v.5/split_data/test/Elaphrosaurus skeleton/Elaphrosaurusskull2.jpeg Carnotaurus skeleton
+D:/REU/My Data v.5/split_data/test/Gallimimus skeleton/112.8607804_450_450_80904_0_fill_0_6d2202046e2758f857a08c680de412fa.jpg Allosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Gallimimus skeleton/113.gallimimus2.jpg Carnotaurus skeleton
+D:/REU/My Data v.5/split_data/test/Gallimimus skeleton/116.1102852_full.png Tarbosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Gallimimus skeleton/159.aagallimimus3.jpg Carnotaurus skeleton
+D:/REU/My Data v.5/split_data/test/Gallimimus skeleton/172.20110304_121610.jpg Acrocanthosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Gallimimus skeleton/18.gallimimus.jpg Tyrannotitan skeleton
+D:/REU/My Data v.5/split_data/test/Gallimimus skeleton/194.9539363_450_450_80904_0_fill_0_e68ceeec82fde10b94b8a5c04998d699.jpg Carnotaurus skeleton
+D:/REU/My Data v.5/split_data/test/Gallimimus skeleton/242.gallimimus-dinosaur-discovering-eggs-in-the-desert_u-l-q12zlnl2fg1qq.jpg Carnotaurus skeleton
+D:/REU/My Data v.5/split_data/test/Gallimimus skeleton/31.gallimimus_bullatus_holotype.jpg Carcharodontosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Gallimimus skeleton/33.gallimimus.jpg Carnotaurus skeleton
+D:/REU/My Data v.5/split_data/test/Gallimimus skeleton/Gallimimusskull11.jpeg Carnotaurus skeleton
+D:/REU/My Data v.5/split_data/test/Gallimimus skeleton/Gallimimusskull28.jpeg Carnotaurus skeleton
+D:/REU/My Data v.5/split_data/test/Giganotosaurus skeleton/108.084d14_4f692e584ce544d6ac263c26cbb72ed3~mv2.jpg Microraptor skeleton
+D:/REU/My Data v.5/split_data/test/Giganotosaurus skeleton/109.img0343.jpeg Oviraptor skeleton
+D:/REU/My Data v.5/split_data/test/Giganotosaurus skeleton/128.vitamin-imagination-5.jpg Chirostenotes skeleton
+D:/REU/My Data v.5/split_data/test/Giganotosaurus skeleton/133.more_giga___t_rex_by_ankler22-daf12vi11.jpg Chirostenotes skeleton
+D:/REU/My Data v.5/split_data/test/Giganotosaurus skeleton/136.feathered_tyrannosaurus_model-5babb276c9e77c0025e4e865.jpg Chirostenotes skeleton
+D:/REU/My Data v.5/split_data/test/Giganotosaurus skeleton/170.giganotosauruswc2-576806a83df78ca6e4c57c2f.jpg Chirostenotes skeleton
+D:/REU/My Data v.5/split_data/test/Giganotosaurus skeleton/184.hqdefault.jpg Chirostenotes skeleton
+D:/REU/My Data v.5/split_data/test/Giganotosaurus skeleton/194.giganotosaurus_museo_carmen_funes.jpg Alioramus skeleton
+D:/REU/My Data v.5/split_data/test/Giganotosaurus skeleton/82.vitamin-imagination-18.jpg Chirostenotes skeleton
+D:/REU/My Data v.5/split_data/test/Giganotosaurus skeleton/98.natural-history-velociraptor-skull-bone-skeleton.jpg Gallimimus skeleton
+D:/REU/My Data v.5/split_data/test/Giganotosaurus skeleton/Giganotosaurusskull14.jpeg Chirostenotes skeleton
+D:/REU/My Data v.5/split_data/test/Giganotosaurus skeleton/Giganotosaurusskull93.jpeg Chirostenotes skeleton
+D:/REU/My Data v.5/split_data/test/Giganotosaurus skeleton/Giganotosaurusskull95.jpeg Chirostenotes skeleton
+D:/REU/My Data v.5/split_data/test/Gorgosaurus skeleton/104.daspletosaurus_in_des_moines.jpg Chirostenotes skeleton
+D:/REU/My Data v.5/split_data/test/Gorgosaurus skeleton/117.img_4210-2.jpg Chirostenotes skeleton
+D:/REU/My Data v.5/split_data/test/Gorgosaurus skeleton/120.tumblr_p1p2ynvzfg1sezf01o3_r1_500.jpg Deinonychus skeleton
+D:/REU/My Data v.5/split_data/test/Gorgosaurus skeleton/159.albertosaurus_side.jpg Chirostenotes skeleton
+D:/REU/My Data v.5/split_data/test/Gorgosaurus skeleton/162.farp,small,wall_texture,product,750x1000.jpg Sinosauropteryx skeleton
+D:/REU/My Data v.5/split_data/test/Gorgosaurus skeleton/167.gorgosaurus-sw.jpg Gorgosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Gorgosaurus skeleton/206.gorgskul.jpg Coelophysis skeleton
+D:/REU/My Data v.5/split_data/test/Gorgosaurus skeleton/228.gorgosaurus-libratus-stands-dead-body-13002049.jpg Monolophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Gorgosaurus skeleton/239.service_card_gorgosaurus-libratus.jpg Dilophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Gorgosaurus skeleton/242.1150px-gorgosaurus.png Coelophysis skeleton
+D:/REU/My Data v.5/split_data/test/Gorgosaurus skeleton/32.js41582512.jpg Torvosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Gorgosaurus skeleton/51.latest.png Coelophysis skeleton
+D:/REU/My Data v.5/split_data/test/Gorgosaurus skeleton/54.gorgosaurus%20new%20s.jpg Coelophysis skeleton
+D:/REU/My Data v.5/split_data/test/Gorgosaurus skeleton/Gorgosaurusfossil79.jpeg Coelophysis skeleton
+D:/REU/My Data v.5/split_data/test/Gorgosaurus skeleton/Gorgosaurusskeleton28.jpeg Sinornithosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Gorgosaurus skeleton/Gorgosaurusskeleton9.jpeg Coelophysis skeleton
+D:/REU/My Data v.5/split_data/test/Gorgosaurus skeleton/Gorgosaurusskeleton95.jpeg Coelophysis skeleton
+D:/REU/My Data v.5/split_data/test/Gorgosaurus skeleton/Gorgosaurusskull28.jpeg Coelophysis skeleton
+D:/REU/My Data v.5/split_data/test/Gorgosaurus skeleton/Gorgosaurusskull30.png Coelophysis skeleton
+D:/REU/My Data v.5/split_data/test/Irritator skeleton/114.spinosauridae%2baquatic%2btraits%2bcompilation%2bdiagram.png Oviraptor skeleton
+D:/REU/My Data v.5/split_data/test/Irritator skeleton/115.w-rex-vanwijmelbeke-irritator.jpg Spinosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Irritator skeleton/143.alectrosaurus+icon.jpg Coelophysis skeleton
+D:/REU/My Data v.5/split_data/test/Irritator skeleton/144.bfd5412b64689bb493418f477a076032e24e5e31_2_507x375.jpeg Coelophysis skeleton
+D:/REU/My Data v.5/split_data/test/Irritator skeleton/148.1807111111537014433.jpg Coelophysis skeleton
+D:/REU/My Data v.5/split_data/test/Irritator skeleton/217.via1.jpg Coelophysis skeleton
+D:/REU/My Data v.5/split_data/test/Irritator skeleton/221.bistahieversor.jpg Coelophysis skeleton
+D:/REU/My Data v.5/split_data/test/Irritator skeleton/230.w-rex-vanwijmelbeke-utha.jpg Coelophysis skeleton
+D:/REU/My Data v.5/split_data/test/Irritator skeleton/Irritatorskull57.png Coelophysis skeleton
+D:/REU/My Data v.5/split_data/test/Lythronax skeleton/117.img.jpg Coelophysis skeleton
+D:/REU/My Data v.5/split_data/test/Lythronax skeleton/119.lythronax-argestes-skull-millard-h-sharp.jpg Tarbosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Lythronax skeleton/148.tyrannosaurus-rex-skeleton-cast-from-the-late-cretaceous-bgdxhj.jpg Coelophysis skeleton
+D:/REU/My Data v.5/split_data/test/Lythronax skeleton/15.c933a5bc-e402-4d1a-a6ff-37893b6708eb-bestsizeavailable.jpeg Sinornithosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Lythronax skeleton/161.latest.png Coelophysis skeleton
+D:/REU/My Data v.5/split_data/test/Lythronax skeleton/167.20120905thanksgiving_point13848.jpg Coelophysis skeleton
+D:/REU/My Data v.5/split_data/test/Lythronax skeleton/177.menefeedinosfinalweb.jpg Coelophysis skeleton
+D:/REU/My Data v.5/split_data/test/Lythronax skeleton/217.scaledown.jpg Alioramus skeleton
+D:/REU/My Data v.5/split_data/test/Lythronax skeleton/222.tyrannosaurus-fossil-dinosaur-sticker.jpg Masiakasaurus skeleton
+D:/REU/My Data v.5/split_data/test/Lythronax skeleton/229.19937035480_1017213a94.jpg Gorgosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Lythronax skeleton/28.conchoraptor-skeletona-1004x1024.jpg Compsognathus skeleton
+D:/REU/My Data v.5/split_data/test/Lythronax skeleton/Lythronaxfossil6.jpeg Concavenator skeleton
+D:/REU/My Data v.5/split_data/test/Lythronax skeleton/Lythronaxskeleton20.jpeg Compsognathus skeleton
+D:/REU/My Data v.5/split_data/test/Masiakasaurus skeleton/112.bhbdhddoddz.jpeg Chirostenotes skeleton
+D:/REU/My Data v.5/split_data/test/Masiakasaurus skeleton/113.eelqb04waaykthx.jpg Utahraptor skeleton
+D:/REU/My Data v.5/split_data/test/Masiakasaurus skeleton/133.eo6vyv7xkaayq0y.jpg Microraptor skeleton
+D:/REU/My Data v.5/split_data/test/Masiakasaurus skeleton/135.majungasaurus-crenatissimus-3-1000x525.jpg Oviraptor skeleton
+D:/REU/My Data v.5/split_data/test/Masiakasaurus skeleton/141.baryonyx-two+skull+compared.jpg Velociraptor skeleton
+D:/REU/My Data v.5/split_data/test/Masiakasaurus skeleton/147.56557019_2015148865456588_1898149485376260670_n.jpg Baryonyx skeleton
+D:/REU/My Data v.5/split_data/test/Masiakasaurus skeleton/159.masiakasaurus-small.png Dilophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Masiakasaurus skeleton/196.035__masiakasaurus_knopfleri_by_green_mamba-d4yd2ye_bca3.jpg Compsognathus skeleton
+D:/REU/My Data v.5/split_data/test/Masiakasaurus skeleton/204.qrcwaqqaarx.jpeg Archaeornithomimus skeleton
+D:/REU/My Data v.5/split_data/test/Masiakasaurus skeleton/215.38877_media_files_media_437348_medium.jpg Yangchuanosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Masiakasaurus skeleton/58.masiakasaurus-3d3dd2f6-47a5-4207-9d0a-f0b3ace33b0-resize-750.jpeg Compsognathus skeleton
+D:/REU/My Data v.5/split_data/test/Masiakasaurus skeleton/72.bhbdhdpeejz.jpeg Ornithomimus skeleton
+D:/REU/My Data v.5/split_data/test/Masiakasaurus skeleton/75.masiakasaurus_knofleri.jpg Ornitholestes skeleton
+D:/REU/My Data v.5/split_data/test/Masiakasaurus skeleton/Masiakasaurusfossil16.jpeg Sinosauropteryx skeleton
+D:/REU/My Data v.5/split_data/test/Megalosaurus skeleton/113.tdih-aug12-hd.jpg Compsognathus skeleton
+D:/REU/My Data v.5/split_data/test/Megalosaurus skeleton/115.926-9265418_allosaurus-megalosaurus-artstation.png Buitreraptor skeleton
+D:/REU/My Data v.5/split_data/test/Megalosaurus skeleton/136.djgddfibhhz.jpeg Compsognathus skeleton
+D:/REU/My Data v.5/split_data/test/Megalosaurus skeleton/138.sam_0688.jpg Compsognathus skeleton
+D:/REU/My Data v.5/split_data/test/Megalosaurus skeleton/141.cageskull.jpg Compsognathus skeleton
+D:/REU/My Data v.5/split_data/test/Megalosaurus skeleton/143.1583685101043.png Compsognathus skeleton
+D:/REU/My Data v.5/split_data/test/Megalosaurus skeleton/164.shutterstock_367199399.jpg Compsognathus skeleton
+D:/REU/My Data v.5/split_data/test/Megalosaurus skeleton/215.sccwqhuaqx.jpeg.png Compsognathus skeleton
+D:/REU/My Data v.5/split_data/test/Megalosaurus skeleton/219.megalosaurus-titanoboa-attacking-each-other-600w-349164008.jpg Sinornithosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Megalosaurus skeleton/224.kenneth-crooker-sketch-1615703131397.jpg Velociraptor skeleton
+D:/REU/My Data v.5/split_data/test/Megalosaurus skeleton/239.dinosaur-egg-trail.jpg Concavenator skeleton
+D:/REU/My Data v.5/split_data/test/Megalosaurus skeleton/Megalosaurusfossil86.jpeg Concavenator skeleton
+D:/REU/My Data v.5/split_data/test/Megalosaurus skeleton/Megalosaurusskeleton27.jpeg Sinornithosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Megalosaurus skeleton/Megalosaurusskull17.jpeg Concavenator skeleton
+D:/REU/My Data v.5/split_data/test/Megalosaurus skeleton/Megalosaurusskull20.jpeg Baryonyx skeleton
+D:/REU/My Data v.5/split_data/test/Microraptor skeleton/113.microraptor-dinosaur-on-gray-background-2bert6j.jpg Microraptor skeleton
+D:/REU/My Data v.5/split_data/test/Microraptor skeleton/152.ss2913074.jpg Concavenator skeleton
+D:/REU/My Data v.5/split_data/test/Microraptor skeleton/159.wulong-skull.jpg Concavenator skeleton
+D:/REU/My Data v.5/split_data/test/Microraptor skeleton/27.fposter,small,wall_texture,product,750x1000.jpg Neovenator skeleton
+D:/REU/My Data v.5/split_data/test/Microraptor skeleton/274.151119044325-on-china-dino-fossil-lu-stout-00001027-super-169.jpg Concavenator skeleton
+D:/REU/My Data v.5/split_data/test/Microraptor skeleton/282.118659220rm55_copy.jpg Giganotosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Microraptor skeleton/302.scotty-tb_tcm25-568765.jpg Carnotaurus skeleton
+D:/REU/My Data v.5/split_data/test/Microraptor skeleton/Microraptorfossil90.jpeg Concavenator skeleton
+D:/REU/My Data v.5/split_data/test/Microraptor skeleton/Microraptorskull92.jpeg Concavenator skeleton
+D:/REU/My Data v.5/split_data/test/Monolophosaurus skeleton/106.dinosaur-monolophosaurus.jpg Concavenator skeleton
+D:/REU/My Data v.5/split_data/test/Monolophosaurus skeleton/107.depositphotos_8948891-stock-photo-tyrannosaurus-rex-t-rex-skeleton.jpg Concavenator skeleton
+D:/REU/My Data v.5/split_data/test/Monolophosaurus skeleton/111.monolophosaurus-andrey-atuchin_b37f.jpg Concavenator skeleton
+D:/REU/My Data v.5/split_data/test/Monolophosaurus skeleton/134.monolophosaurus.jpg Concavenator skeleton
+D:/REU/My Data v.5/split_data/test/Monolophosaurus skeleton/135.1.jpg Oviraptor skeleton
+D:/REU/My Data v.5/split_data/test/Monolophosaurus skeleton/155.fossilworld_7821_1.jpg Concavenator skeleton
+D:/REU/My Data v.5/split_data/test/Monolophosaurus skeleton/184.cf26da2381543451021fccc228f9b651.jpg Carnotaurus skeleton
+D:/REU/My Data v.5/split_data/test/Monolophosaurus skeleton/189.dfd0ea799c87b01f6c9a7c6c58e821aa3a5abb37.png Megalosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Monolophosaurus skeleton/197.mqdefault.jpg Concavenator skeleton
+D:/REU/My Data v.5/split_data/test/Monolophosaurus skeleton/209.jurassic_xinjiang_by_patriatyrannus.jpg Concavenator skeleton
+D:/REU/My Data v.5/split_data/test/Monolophosaurus skeleton/48.realistic-monolophosaurus-skull-lifelike-dinosaur-skull-skeleton-models-resin-craftwork-animal-research-teaching-aids-kids-gifts.jpg_q50.jpg Dilophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Monolophosaurus skeleton/85.300px-bellusaurus_and_monolophosaurus.jpg Concavenator skeleton
+D:/REU/My Data v.5/split_data/test/Monolophosaurus skeleton/Monolophosaurusfossil10.png Concavenator skeleton
+D:/REU/My Data v.5/split_data/test/Monolophosaurus skeleton/Monolophosaurusfossil85.jpeg Concavenator skeleton
+D:/REU/My Data v.5/split_data/test/Monolophosaurus skeleton/Monolophosaurusskull50.jpeg Megalosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Neovenator skeleton/110.dscn0593_d37f1ea0-31f0-479f-9c24-f17efefa076e_934x700.jpg Tyrannosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Neovenator skeleton/113.ceratosaurus%20dent%20skull%20s.jpg Deinonychus skeleton
+D:/REU/My Data v.5/split_data/test/Neovenator skeleton/116.neovenator-4b32c119-a2eb-4e75-bf05-09bf8265c1f-resize-750.jpeg Acrocanthosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Neovenator skeleton/142.mqdefault.jpg Struthiomimus skeleton
+D:/REU/My Data v.5/split_data/test/Neovenator skeleton/143..jpg Daspletosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Neovenator skeleton/148.mswqzl5w.jpeg Daspletosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Neovenator skeleton/150.395cca6198749f8f5d9c9f90784defc0630fcf2br1-537-451v2_hq.jpg Megalosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Neovenator skeleton/211.collecta_neovenator_dinosaur_model2.jpg Carnotaurus skeleton
+D:/REU/My Data v.5/split_data/test/Neovenator skeleton/216.neovenator_by_xiphactinus_dbcosha-350t.jpg Velociraptor skeleton
+D:/REU/My Data v.5/split_data/test/Neovenator skeleton/218.faxxrvuv35cnfj2n47xizvfpz4.jpeg Allosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Neovenator skeleton/221.large_861_2.jpg Alioramus skeleton
+D:/REU/My Data v.5/split_data/test/Neovenator skeleton/235.dollodon_and_neovenator_by_paleoguy-d6u3cfr.jpg Alioramus skeleton
+D:/REU/My Data v.5/split_data/test/Neovenator skeleton/Neovenatorskeleton40.jpeg Carnotaurus skeleton
+D:/REU/My Data v.5/split_data/test/Ornitholestes skeleton/110.didelphodonwc-56e06c413df78c5ba055539e.png Daspletosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Ornitholestes skeleton/111.9781684122554_p1_v2_s550x406.jpg Tyrannosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Ornitholestes skeleton/114.440px-ornitholestes_scale.svg.png Abelisaurus skeleton
+D:/REU/My Data v.5/split_data/test/Ornitholestes skeleton/136.thumb.png.jpg Tyrannosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Ornitholestes skeleton/138.allosaurus.jpg Tyrannosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Ornitholestes skeleton/148.picture-taken-on-april-13-2019-shows-a-crested-hypacrosas-skeleton-a-picture-id1136729369.jpg Deinonychus skeleton
+D:/REU/My Data v.5/split_data/test/Ornitholestes skeleton/150.tyrannosaurus-rex-dinosaur-photorealistic-d-rendering-full-skeleton-tyrannosaurus-rex-dinosaur-photorealistic-d-rendering-143928874.jpg Dilophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Ornitholestes skeleton/164.ornitholestes-b581c307-abf1-4f50-9051-bc49b69c83f-resize-750.jpeg Deinonychus skeleton
+D:/REU/My Data v.5/split_data/test/Ornitholestes skeleton/197.depositphotos_367642000-stock-photo-dinosaur-exhibit-royal-tyrrell-museum.jpg Neovenator skeleton
+D:/REU/My Data v.5/split_data/test/Ornitholestes skeleton/198.dscn8967.jpg Deinonychus skeleton
+D:/REU/My Data v.5/split_data/test/Ornitholestes skeleton/202.img_1808.jpg Neovenator skeleton
+D:/REU/My Data v.5/split_data/test/Ornitholestes skeleton/205.tyrannosaurus%20stan.jpg Utahraptor skeleton
+D:/REU/My Data v.5/split_data/test/Ornitholestes skeleton/216.rhoda_with_tyrannosaurus.jpg Deinonychus skeleton
+D:/REU/My Data v.5/split_data/test/Ornitholestes skeleton/61.9591861_450_450_80904_0_fill_0_3bf5b5561c3a62ab3a9c84c918e07cc4.jpg Deinonychus skeleton
+D:/REU/My Data v.5/split_data/test/Ornitholestes skeleton/99.tumblr_inline_o63km9bzbl1qdikaa_1280.jpg Deinonychus skeleton
+D:/REU/My Data v.5/split_data/test/Ornitholestes skeleton/Ornitholestesskeleton10.jpeg Concavenator skeleton
+D:/REU/My Data v.5/split_data/test/Ornithomimus skeleton/11.1200px-struthiomimus_isolated.png Bambiraptor skeleton
+D:/REU/My Data v.5/split_data/test/Ornithomimus skeleton/132.ornithomimus_life-size_re-creation_-_dakota_dinosaur_museum.jpg Buitreraptor skeleton
+D:/REU/My Data v.5/split_data/test/Ornithomimus skeleton/135.maxresdefault.jpg Dromaeosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Ornithomimus skeleton/151.latest.jpg Deinonychus skeleton
+D:/REU/My Data v.5/split_data/test/Ornithomimus skeleton/184.d2bzr95-68c45983-9e63-4e58-bbe3-df66afd7a08e.jpg Baryonyx skeleton
+D:/REU/My Data v.5/split_data/test/Ornithomimus skeleton/185.kisspng-oviraptor-velociraptor-tyrannosaurus-dinosaur-citi-qilong39s-ingeniacolor-that-ingenia-challenge-5bc4e533783cd7.0085177615396303874925.jpg Torvosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Ornithomimus skeleton/187.albertosaurus.jpg Ornithomimus skeleton
+D:/REU/My Data v.5/split_data/test/Ornithomimus skeleton/194.ua-2019-julaug_dinosaur-644.jpg Deinonychus skeleton
+D:/REU/My Data v.5/split_data/test/Ornithomimus skeleton/36.1457388394.jpg Compsognathus skeleton
+D:/REU/My Data v.5/split_data/test/Ornithomimus skeleton/Ornithomimusfossil10.jpeg Deinonychus skeleton
+D:/REU/My Data v.5/split_data/test/Oviraptor skeleton/107.oviraptor-1.jpg Deinonychus skeleton
+D:/REU/My Data v.5/split_data/test/Oviraptor skeleton/11.72df1c597f9010aad3137ec5b23244d7.png Acrocanthosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Oviraptor skeleton/128.undug.jpg Deinonychus skeleton
+D:/REU/My Data v.5/split_data/test/Oviraptor skeleton/132.20170721_173116.jpg.b299e289853128659626881ddc0f78a7.jpg Deinonychus skeleton
+D:/REU/My Data v.5/split_data/test/Oviraptor skeleton/137.caudipteryx_zoui-small.jpg Deinonychus skeleton
+D:/REU/My Data v.5/split_data/test/Oviraptor skeleton/146.17f72605-0f23-4d7b-8071-c10d4d8d276e.jpeg Deinonychus skeleton
+D:/REU/My Data v.5/split_data/test/Oviraptor skeleton/178.2671595217_6234192be2_b.jpg Alioramus skeleton
+D:/REU/My Data v.5/split_data/test/Oviraptor skeleton/18.oviraptor-skeleton.1.jpg Compsognathus skeleton
+D:/REU/My Data v.5/split_data/test/Oviraptor skeleton/34.oviraptor-exposition-of-dinosaurs-from-gobi-desert-in-mongolia-cosmocaixa-d548x0.jpg Deinonychus skeleton
+D:/REU/My Data v.5/split_data/test/Oviraptor skeleton/79.48107718483_f0d9131f55_b.jpg Bambiraptor skeleton
+D:/REU/My Data v.5/split_data/test/Oviraptor skeleton/Oviraptorfossil27.jpeg Acrocanthosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Oviraptor skeleton/Oviraptorskeleton7.jpeg Deinonychus skeleton
+D:/REU/My Data v.5/split_data/test/Oviraptor skeleton/Oviraptorskull61.jpeg Deinonychus skeleton
+D:/REU/My Data v.5/split_data/test/Saurornithoides skeleton/110.hqdefault.jpg Dilophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Saurornithoides skeleton/143.ab4fa118013d22821677960a0ebfbae2.jpg Dilophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Saurornithoides skeleton/152.july-07-2011-los-angeles-california-us-skeleton-of-a-velociraptor-cdny6r.jpg Dilophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Saurornithoides skeleton/163.5d4bcc4b2bb4203b05a8bf25.jpg Dilophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Saurornithoides skeleton/199.032-ceratosaurus%2bnasicornis.jpg Dilophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Saurornithoides skeleton/27.440px-saurornithoides_restoration.png Tyrannosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Saurornithoides skeleton/36.qrceruwrhrx.jpeg.png Dilophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Saurornithoides skeleton/Saurornithoidesskeleton18.png Dilophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Sinocalliopteryx skeleton/115.mmwpgwfsfsy.jpeg Megalosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Sinocalliopteryx skeleton/136.gorgosaurus_skull588.jpg Tyrannotitan skeleton
+D:/REU/My Data v.5/split_data/test/Sinocalliopteryx skeleton/14.stokesosaurus.jpg Archaeornithomimus skeleton
+D:/REU/My Data v.5/split_data/test/Sinocalliopteryx skeleton/141.birds-paleontology-wings-dinosaur-fossil.png Daspletosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Sinocalliopteryx skeleton/146.tyrannosaurus-rex-dinosaur-skull-replica-by-eofauna.jpg Dilophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Sinocalliopteryx skeleton/199.3201116-saurornithoides-3.jpg Coelophysis skeleton
+D:/REU/My Data v.5/split_data/test/Sinocalliopteryx skeleton/205.tumblr_lvasnhdpyu1qhf8n0o1_1280.png Irritator skeleton
+D:/REU/My Data v.5/split_data/test/Sinocalliopteryx skeleton/Sinocalliopteryxskeleton24.jpeg Deinonychus skeleton
+D:/REU/My Data v.5/split_data/test/Sinocalliopteryx skeleton/Sinocalliopteryxskeleton40.jpeg Dilophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Sinornithosaurus skeleton/112.wulong-scaled.jpg Sinraptor skeleton
+D:/REU/My Data v.5/split_data/test/Sinornithosaurus skeleton/114.3000.jpg Yangchuanosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Sinornithosaurus skeleton/115.newdinosaurd.jpg Dilophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Sinornithosaurus skeleton/147.some_image.width-1600.0e188a3.jpg Dilophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Sinornithosaurus skeleton/155.tyrannosaur_clade25.jpg Dilophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Sinornithosaurus skeleton/158.tawa_pressrelease.jpg Dilophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Sinornithosaurus skeleton/185.106601766_real-fossil-dinosaur-sinornithosaurus-millenii-raptor-.jpg Megalosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Sinornithosaurus skeleton/27.imgbin-velociraptor-sinornithosaurus-deinonychus-dromaeosaurids-dinosaur-dinosaur-dnyiidrqkytd4gse4f4gjx5ku.jpg Coelophysis skeleton
+D:/REU/My Data v.5/split_data/test/Sinornithosaurus skeleton/4.422d2c175303bc57837728e78e0e850b.jpg Dilophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Sinornithosaurus skeleton/51.sinornithosaurus%20new.jpg Dilophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Sinornithosaurus skeleton/Sinornithosaurusskeleton30.jpeg Dilophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Sinornithosaurus skeleton/Sinornithosaurusskull50.jpeg Dilophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Sinornithosaurus skeleton/Sinornithosaurusskull6.jpeg Dilophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Sinosauropteryx skeleton/111.stock-photo-closeup-of-a-replica-of-fossilized-scary-petrified-velociraptor-dinosaur-fossil-remains-in-stone-1126230566.jpg Dilophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Sinosauropteryx skeleton/113.gobivenator-skeleton588.jpg Dilophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Sinosauropteryx skeleton/137.tyrannosaurus-rex-fossil-dinosaur-jurassic-cretaceous-130-million.jpg Abelisaurus skeleton
+D:/REU/My Data v.5/split_data/test/Sinosauropteryx skeleton/143.21473e4e54e88bba29.jpg Dilophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Sinosauropteryx skeleton/15.sinosauropteryx-size.jpg Dilophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Sinosauropteryx skeleton/17.compsognathidae.jpg Dilophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Sinosauropteryx skeleton/213.dinosaurs-of-china-microraptor-gui.jpg Dilophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Sinosauropteryx skeleton/219.image036.jpg Dilophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Sinosauropteryx skeleton/227.13007161_450_450_80909_367_fill_0_14ea42d667455194eb50dd574a46e654.jpg Tyrannosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Sinosauropteryx skeleton/237.imgp3513.jpg Bambiraptor skeleton
+D:/REU/My Data v.5/split_data/test/Sinosauropteryx skeleton/Sinosauropteryxskeleton24.jpeg Dromaeosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Sinosauropteryx skeleton/Sinosauropteryxskull45.png Abelisaurus skeleton
+D:/REU/My Data v.5/split_data/test/Sinosauropteryx skeleton/Sinosauropteryxskull76.jpeg Velociraptor skeleton
+D:/REU/My Data v.5/split_data/test/Sinraptor skeleton/118.3733895763_5a9631c6a7.jpg Yangchuanosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Sinraptor skeleton/121.12052_2009_137_fig7_html.gif.png Carnotaurus skeleton
+D:/REU/My Data v.5/split_data/test/Sinraptor skeleton/150.figure.png Dromaeosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Sinraptor skeleton/161.figure.png Dromaeosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Sinraptor skeleton/163.image.png Dromaeosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Sinraptor skeleton/179.zi-5vwg-2019-mar00-idsi-193-1.jpg Microraptor skeleton
+D:/REU/My Data v.5/split_data/test/Sinraptor skeleton/231.s-l300.jpg Dromaeosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Sinraptor skeleton/233.dmxuf6xwaaazhed.jpg Tarbosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Sinraptor skeleton/40.19139.png Dromaeosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Sinraptor skeleton/Sinraptorfossil11.jpeg Dromaeosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Sinraptor skeleton/Sinraptorfossil84.jpeg Dromaeosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Sinraptor skeleton/Sinraptorskeleton38.jpeg Tyrannosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Sinraptor skeleton/Sinraptorskeleton48.jpeg Dromaeosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Sinraptor skeleton/Sinraptorskull0.jpeg Dromaeosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Spinosaurus skeleton/161.maxresdefault_-_courtesy_of_nizar.jpg Bambiraptor skeleton
+D:/REU/My Data v.5/split_data/test/Spinosaurus skeleton/162.st,small,845x845-pad,1000x1000,f8f8f8.jpg Dilophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Spinosaurus skeleton/207.csuuueswhrx.jpeg Buitreraptor skeleton
+D:/REU/My Data v.5/split_data/test/Spinosaurus skeleton/213.8826430_0.jpg Dromaeosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Spinosaurus skeleton/218.dinospino8.jpg Bambiraptor skeleton
+D:/REU/My Data v.5/split_data/test/Spinosaurus skeleton/231.spino___potamus__by_chrismasna-d82kxwp.jpg Elaphrosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Spinosaurus skeleton/spinosaurusfossil22.jpeg Masiakasaurus skeleton
+D:/REU/My Data v.5/split_data/test/Spinosaurus skeleton/spinosaurusfossil32.jpeg Elaphrosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Spinosaurus skeleton/spinosaurusskeleton28.jpeg Coelophysis skeleton
+D:/REU/My Data v.5/split_data/test/Spinosaurus skeleton/spinosaurusskull93.png Elaphrosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Struthiomimus skeleton/12.best-estimate-reconstruction-of-struthiomimus-sedens-bhi-1266-in-a-right-lateral-b_q640.jpg Megalosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Struthiomimus skeleton/144.85-857085_free-clipart-of-a-dinosaur-skeleton-transparent-background.png Elaphrosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Struthiomimus skeleton/145.slide_16.jpg Elaphrosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Struthiomimus skeleton/155.ma_00158201_vcqqvh.jpg Utahraptor skeleton
+D:/REU/My Data v.5/split_data/test/Struthiomimus skeleton/160.image.jpg Concavenator skeleton
+D:/REU/My Data v.5/split_data/test/Struthiomimus skeleton/182.279.jpg Yangchuanosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Struthiomimus skeleton/224.300px-struthiomimus_altus_scale.png Suchomimus skeleton
+D:/REU/My Data v.5/split_data/test/Struthiomimus skeleton/236.tumblr_nr9q7gx4nc1tf2b0lo1_1280.jpg Elaphrosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Struthiomimus skeleton/239.image.png Struthiomimus skeleton
+D:/REU/My Data v.5/split_data/test/Struthiomimus skeleton/249.lu21yby.png Ornitholestes skeleton
+D:/REU/My Data v.5/split_data/test/Struthiomimus skeleton/Struthiomimusfossil39.jpeg Neovenator skeleton
+D:/REU/My Data v.5/split_data/test/Struthiomimus skeleton/Struthiomimusfossil9.jpeg Elaphrosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Struthiomimus skeleton/Struthiomimusskeleton67.jpeg Masiakasaurus skeleton
+D:/REU/My Data v.5/split_data/test/Struthiomimus skeleton/Struthiomimusskull14.jpeg Ornithomimus skeleton
+D:/REU/My Data v.5/split_data/test/Suchomimus skeleton/106.gettyimages-594381321-58ddf9845f9b584683cf23cf.jpg Archaeornithomimus skeleton
+D:/REU/My Data v.5/split_data/test/Suchomimus skeleton/109.106987_kc_qjlycggyidx3eeu4ppwubd.jpg Ornithomimus skeleton
+D:/REU/My Data v.5/split_data/test/Suchomimus skeleton/127.suchimimusskelsmall.jpg Ornithomimus skeleton
+D:/REU/My Data v.5/split_data/test/Suchomimus skeleton/128.200px-suchomimus.jpg Gallimimus skeleton
+D:/REU/My Data v.5/split_data/test/Suchomimus skeleton/133.safari-ltd-suchomimus.jpg Teratophoneus skeleton
+D:/REU/My Data v.5/split_data/test/Suchomimus skeleton/137.suchomimus%2bphoto%2bof%2bskull%2band%2barm%2band%2bhand%2bat%2bt.%2bpoint%2bmuseum%2bof%2bancient%2blife.png Ornithomimus skeleton
+D:/REU/My Data v.5/split_data/test/Suchomimus skeleton/148.tumblr_lz01ej3ryr1qcmdueo1_r2_1280.png Ornithomimus skeleton
+D:/REU/My Data v.5/split_data/test/Suchomimus skeleton/18.dbs4m0r-4373f54d-b28c-418a-acc1-4eac44d7f108.jpg Sinornithosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Suchomimus skeleton/182.35035165442_e8d957cdd8_z.jpg Neovenator skeleton
+D:/REU/My Data v.5/split_data/test/Suchomimus skeleton/187.model-of-a-suchomimus-dinosaur-d0macm.jpg Chirostenotes skeleton
+D:/REU/My Data v.5/split_data/test/Suchomimus skeleton/195.k3turi.jpg Gallimimus skeleton
+D:/REU/My Data v.5/split_data/test/Suchomimus skeleton/206.avqudvhxejrixiqnuid2.jpg Gallimimus skeleton
+D:/REU/My Data v.5/split_data/test/Suchomimus skeleton/43.suchomimus_skull588.jpg Gallimimus skeleton
+D:/REU/My Data v.5/split_data/test/Suchomimus skeleton/72.suchomimus_skullcast_aus.jpg Gallimimus skeleton
+D:/REU/My Data v.5/split_data/test/Suchomimus skeleton/Suchomimusfossil3.jpeg Gallimimus skeleton
+D:/REU/My Data v.5/split_data/test/Suchomimus skeleton/Suchomimusskeleton14.jpeg Tyrannosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Tarbosaurus skeleton/117.trex_edited.jpg Neovenator skeleton
+D:/REU/My Data v.5/split_data/test/Tarbosaurus skeleton/117.ttsuthhrx.jpeg Allosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Tarbosaurus skeleton/122.melbourne-australia-june-th-cast-fossils-dinosaurs-melbourne-museum-left-tarbosaurus-bataar-middle-184591485.jpg Torvosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Tarbosaurus skeleton/122.tarbosaurus-skeleton-his-own-shape-600w-88525828.jpg Giganotosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Tarbosaurus skeleton/165.skeleton-dinosaur-skull-paleontology-reptile-bones-tyrannosaurus-tyrannosaurus-rex-carnassial.jpg Carcharodontosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Tarbosaurus skeleton/199.img-4353_21.jpg Giganotosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Tarbosaurus skeleton/206.gettyimages-52384539-2.jpg Abelisaurus skeleton
+D:/REU/My Data v.5/split_data/test/Tarbosaurus skeleton/207.t-rex-dinosaur-tyrannosaurus-jurassic-skeleton-museum-animal-extinct-teeth.jpg Carcharodontosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Tarbosaurus skeleton/233.ekrsk3kvcaevv-o.jpg Giganotosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Tarbosaurus skeleton/246.tarbosaurus-is-seen-at-the-dinosaur-expo-2005-at-the-national-science-picture-id52433711.jpg Tyrannotitan skeleton
+D:/REU/My Data v.5/split_data/test/Tarbosaurus skeleton/249.stock_gettyimages-631364990.jpg.jpg Giganotosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Tarbosaurus skeleton/69.stock-vector-tarbosaurus-dinosaur-skeleton-tarbosaurus-tattoo-art-design-book-illustration-1246670923.jpg Giganotosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Tarbosaurus skeleton/Tarbosaurusfossil15.jpeg Coelophysis skeleton
+D:/REU/My Data v.5/split_data/test/Tarbosaurus skeleton/Tarbosaurusfossil91.jpeg Tyrannosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Tarbosaurus skeleton/Tarbosaurusskeleton29.jpeg Giganotosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Tarbosaurus skeleton/Tarbosaurusskull69.jpeg Giganotosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Tarbosaurus skeleton/Tarbosaurusskull70.jpeg Acrocanthosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Teratophoneus skeleton/115.teratophoneus_curriei_by_crizz24_daoqn7h-350t.jpg Giganotosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Teratophoneus skeleton/117.most-complete-tyrannosaur-fossil-found-in-utah.jpg Tyrannosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Teratophoneus skeleton/118.img_8240.jpg Giganotosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Teratophoneus skeleton/146..jpg Giganotosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Teratophoneus skeleton/147.talosgseplogo-1.jpeg Giganotosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Teratophoneus skeleton/165.tumblr_inline_oamscqqkbj1rx4yme_1280.png Carcharodontosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Teratophoneus skeleton/175.lythronax-skeleton-hartman_16x9.jpg.jpg Giganotosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Teratophoneus skeleton/21.5781c9a9d856434c8c33e2de45000eee.jpeg Giganotosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Teratophoneus skeleton/212.tumblr_inline_nxyzipla3j1rx4yme_1280.jpg Tyrannosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Teratophoneus skeleton/215.theropod-legs-two-column.jpg.thumb.768.768.jpg Acrocanthosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Teratophoneus skeleton/218.tyrannosaurmodels2large.jpg Daspletosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Teratophoneus skeleton/228.brusatte_et_al_figure1.jpg Gorgosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Teratophoneus skeleton/76.maxresdefault.jpg Tyrannosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Teratophoneus skeleton/Teratophoneusfossil36.jpeg Albertosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Teratophoneus skeleton/Teratophoneusskull0.jpeg Gorgosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Torvosaurus skeleton/117.pd,x500,macbook_air_13-pad,750x1000,f8f8f8.jpg Carcharodontosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Torvosaurus skeleton/134.dinosaur-skull-drawing-48.jpg Alioramus skeleton
+D:/REU/My Data v.5/split_data/test/Torvosaurus skeleton/169.img_1296.jpg Compsognathus skeleton
+D:/REU/My Data v.5/split_data/test/Torvosaurus skeleton/178.main-qimg-e2964890670ff812ee068d5219e8c0a2.jpg Gorgosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Torvosaurus skeleton/180.torvosaurus-ancient-life1.jpg Gorgosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Torvosaurus skeleton/182.byu-dinosaur-museum-14.jpg Gorgosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Torvosaurus skeleton/188.11391652@600-1376864210.jpg Albertosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Torvosaurus skeleton/199.ceratosaurmodels.jpg Irritator skeleton
+D:/REU/My Data v.5/split_data/test/Torvosaurus skeleton/40.reconstruction-of-in-lateral-view-a-skeletal-reconstruction-of-torvosaurus-gurneyi-in_q640.jpg Gorgosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Torvosaurus skeleton/Torvosaurusskeleton14.jpeg Albertosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Torvosaurus skeleton/Torvosaurusskeleton33.jpeg Daspletosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Torvosaurus skeleton/Torvosaurusskull18.jpeg Gorgosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Torvosaurus skeleton/Torvosaurusskull88.jpeg Gorgosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Tyrannosaurus skeleton/102.t-rex.jpg Tyrannosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Tyrannosaurus skeleton/117.tyrannosaurus-fossil-dinosaur-magnet.jpg Dilophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Tyrannosaurus skeleton/125.vector-antique-engraving-drawing-illustration-260nw-1285432783.jpg Alioramus skeleton
+D:/REU/My Data v.5/split_data/test/Tyrannosaurus skeleton/126.trex-top.png Gorgosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Tyrannosaurus skeleton/173.https%3a%2f%2fcdn.cnn.com%2fcnnnext%2fdam%2fassets%2f191231141028-02-teen-t-rex-fossils.jpg Gorgosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Tyrannosaurus skeleton/192.juvenile-t-rex.jpg Gorgosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Tyrannosaurus skeleton/208.djs6324145038_high.jpg Tyrannosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Tyrannosaurus skeleton/215.4084e340-3bd0-491c-a9e9-86111dbc2ef4_w1080_h608_s.jpg.jpg Abelisaurus skeleton
+D:/REU/My Data v.5/split_data/test/Tyrannosaurus skeleton/254.apihegc8s__57766.1592318311.jpg Tyrannosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Tyrannosaurus skeleton/255.dsc_5429-1030x688.jpg Carcharodontosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Tyrannosaurus skeleton/262.an-authentic-tyrannosaurus-rex-skeleton-is-displayed-during-a-press-picture-id1153687209.jpg Baryonyx skeleton
+D:/REU/My Data v.5/split_data/test/Tyrannosaurus skeleton/268.baby-tyrannosaur.jpg.jpg Baryonyx skeleton
+D:/REU/My Data v.5/split_data/test/Tyrannosaurus skeleton/323.kdasprrg3ngwexykh4ppqk.jpg Bambiraptor skeleton
+D:/REU/My Data v.5/split_data/test/Tyrannosaurus skeleton/Tyrannosaurusfossil8.jpeg Spinosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Tyrannosaurus skeleton/Tyrannosaurusskeleton18.jpeg Irritator skeleton
+D:/REU/My Data v.5/split_data/test/Tyrannosaurus skeleton/Tyrannosaurusskeleton24.jpeg Acrocanthosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Tyrannosaurus skeleton/Tyrannosaurusskeleton46.jpeg Baryonyx skeleton
+D:/REU/My Data v.5/split_data/test/Tyrannosaurus skeleton/Tyrannosaurusskeleton55.jpeg Dilophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Tyrannosaurus skeleton/Tyrannosaurusskeleton98.jpeg Irritator skeleton
+D:/REU/My Data v.5/split_data/test/Tyrannosaurus skeleton/Tyrannosaurusskeleton99.jpeg Irritator skeleton
+D:/REU/My Data v.5/split_data/test/Tyrannosaurus skeleton/Tyrannosaurusskull34.jpeg Irritator skeleton
+D:/REU/My Data v.5/split_data/test/Tyrannosaurus skeleton/Tyrannosaurusskull35.jpeg Abelisaurus skeleton
+D:/REU/My Data v.5/split_data/test/Tyrannosaurus skeleton/Tyrannosaurusskull6.png Alioramus skeleton
+D:/REU/My Data v.5/split_data/test/Tyrannotitan skeleton/115.museo-773x458.jpeg Velociraptor skeleton
+D:/REU/My Data v.5/split_data/test/Tyrannotitan skeleton/116.coelophysis.jpg Irritator skeleton
+D:/REU/My Data v.5/split_data/test/Tyrannotitan skeleton/117.crtuuhwrqqx.jpeg Irritator skeleton
+D:/REU/My Data v.5/split_data/test/Tyrannotitan skeleton/146.skeletal-reconstruction-and-postcranial-anatomy-of-asfaltovenator-vialidadi-mpef-pv_q640.jpg Irritator skeleton
+D:/REU/My Data v.5/split_data/test/Tyrannotitan skeleton/152.448.png Irritator skeleton
+D:/REU/My Data v.5/split_data/test/Tyrannotitan skeleton/173.tyrannosaurus-tyrannotitan-velociraptor-dinosaur-png-favpng-hxzjarusudyc0tukee3rnztqr.jpg Irritator skeleton
+D:/REU/My Data v.5/split_data/test/Tyrannotitan skeleton/218.velociraptor-dinosaur-millard-h-sharp-canvas-print.jpg Baryonyx skeleton
+D:/REU/My Data v.5/split_data/test/Tyrannotitan skeleton/22.6001795625_49a308733d_b.jpg Daspletosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Tyrannotitan skeleton/221.imgbin-tyrannosaurus-skeleton-dinosaur-skull-human-body-skeleton-qgpzm1vfmtagylphnnhs1kent_t.jpg Chirostenotes skeleton
+D:/REU/My Data v.5/split_data/test/Tyrannotitan skeleton/226.shaochilong-skull-restoration-300x198.jpg Lythronax skeleton
+D:/REU/My Data v.5/split_data/test/Tyrannotitan skeleton/246.1539_1577027894.png Dilophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Tyrannotitan skeleton/95.9289759ae647bae107838ff2b15332ee.jpg Teratophoneus skeleton
+D:/REU/My Data v.5/split_data/test/Tyrannotitan skeleton/Tyrannotitanskeleton10.png Masiakasaurus skeleton
+D:/REU/My Data v.5/split_data/test/Tyrannotitan skeleton/Tyrannotitanskeleton3.jpeg Tyrannosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Tyrannotitan skeleton/Tyrannotitanskull13.jpeg Megalosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Utahraptor skeleton/107.utahraptor-dinosaur-skeleton-stock-photograph__u87821046.jpg Carnotaurus skeleton
+D:/REU/My Data v.5/split_data/test/Utahraptor skeleton/109.latest.png Lythronax skeleton
+D:/REU/My Data v.5/split_data/test/Utahraptor skeleton/124.8139557_450_450_81393_0_fill_0_cb814e9f019d655edfce61afe814a8b0.jpg Baryonyx skeleton
+D:/REU/My Data v.5/split_data/test/Utahraptor skeleton/125.5641671-dinosaur-utahraptor-.jpg Spinosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Utahraptor skeleton/141.png-transparent-velociraptor-deinonychus-tyrannosaurus-utahraptor-spinosaurus-dinosaur-tyrannosaurus-fauna-wildlife.png Gallimimus skeleton
+D:/REU/My Data v.5/split_data/test/Utahraptor skeleton/174.gv3gsbpe6zgu7ocglmqwbwll2u.jpg Lythronax skeleton
+D:/REU/My Data v.5/split_data/test/Utahraptor skeleton/182.the-more-accurate-utahraptor.png Lythronax skeleton
+D:/REU/My Data v.5/split_data/test/Utahraptor skeleton/185.utahraptor-in-your-face.jpg Carcharodontosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Utahraptor skeleton/20.pqsmsnksmny.jpeg Gorgosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Utahraptor skeleton/Utahraptorfossil66.jpeg Lythronax skeleton
+D:/REU/My Data v.5/split_data/test/Utahraptor skeleton/Utahraptorskeleton29.jpeg Lythronax skeleton
+D:/REU/My Data v.5/split_data/test/Utahraptor skeleton/Utahraptorskeleton72.jpeg Lythronax skeleton
+D:/REU/My Data v.5/split_data/test/Utahraptor skeleton/Utahraptorskeleton77.jpeg Masiakasaurus skeleton
+D:/REU/My Data v.5/split_data/test/Utahraptor skeleton/Utahraptorskull87.jpeg Dromaeosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Velociraptor skeleton/112.tumblr_p1mra2eupi1sjt13no2_1280.jpg Chirostenotes skeleton
+D:/REU/My Data v.5/split_data/test/Velociraptor skeleton/113.img_20170528_203020%20-%20copie.jpg Dromaeosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Velociraptor skeleton/155.138424446-vector-dinosaur-velociraptor-skeleton-silhouette-illustration-isolated.jpg Teratophoneus skeleton
+D:/REU/My Data v.5/split_data/test/Velociraptor skeleton/157.eq2spz8u0aarx_e.jpg Baryonyx skeleton
+D:/REU/My Data v.5/split_data/test/Velociraptor skeleton/167.velociraptor-skull-dinosaur-fossil-replica-3.jpg Velociraptor skeleton
+D:/REU/My Data v.5/split_data/test/Velociraptor skeleton/178.710x528_18011342_10110848_1488952476_1_0.jpg Alioramus skeleton
+D:/REU/My Data v.5/split_data/test/Velociraptor skeleton/226.megaraptor-namunhuaiquii-skeleton-isolated-260nw-155163281.jpg Masiakasaurus skeleton
+D:/REU/My Data v.5/split_data/test/Velociraptor skeleton/233.dinosaur-fossil-replicas-velociraptor-skeleton1-300x225.jpg Chirostenotes skeleton
+D:/REU/My Data v.5/split_data/test/Velociraptor skeleton/39.velociraptor-skeleton-1.jpg Masiakasaurus skeleton
+D:/REU/My Data v.5/split_data/test/Velociraptor skeleton/Velociraptorskeleton12.jpeg Allosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Velociraptor skeleton/Velociraptorskeleton29.jpeg Monolophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Velociraptor skeleton/Velociraptorskull10.jpeg Masiakasaurus skeleton
+D:/REU/My Data v.5/split_data/test/Velociraptor skeleton/Velociraptorskull40.jpeg Masiakasaurus skeleton
+D:/REU/My Data v.5/split_data/test/Velociraptor skeleton/Velociraptorskull61.jpeg Monolophosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Yangchuanosaurus skeleton/109.kvajhqeyqhy6nxg05vglmw_thumb_fdc4.jpg Baryonyx skeleton
+D:/REU/My Data v.5/split_data/test/Yangchuanosaurus skeleton/11.65ba06638413324c0c9096a55b98c2ca.jpg Baryonyx skeleton
+D:/REU/My Data v.5/split_data/test/Yangchuanosaurus skeleton/136.page_24_thumb_large.jpg Masiakasaurus skeleton
+D:/REU/My Data v.5/split_data/test/Yangchuanosaurus skeleton/153.t-rex-skull2-1024x681.jpg Utahraptor skeleton
+D:/REU/My Data v.5/split_data/test/Yangchuanosaurus skeleton/182.discovery+of+fossils.jpg Masiakasaurus skeleton
+D:/REU/My Data v.5/split_data/test/Yangchuanosaurus skeleton/186.lourinhanosaurus_antunesi.jpg Masiakasaurus skeleton
+D:/REU/My Data v.5/split_data/test/Yangchuanosaurus skeleton/189.d9cnf6qxoaa5jz_.jpg Masiakasaurus skeleton
+D:/REU/My Data v.5/split_data/test/Yangchuanosaurus skeleton/191.pit-dino-416x500.jpg Megalosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Yangchuanosaurus skeleton/207.latest.png Daspletosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Yangchuanosaurus skeleton/73.467be1b141878bb56b1420ff2d1a0e62.jpg Baryonyx skeleton
+D:/REU/My Data v.5/split_data/test/Yangchuanosaurus skeleton/86.220px-yanchuanosaurus1.jpg Carcharodontosaurus skeleton
+D:/REU/My Data v.5/split_data/test/Yangchuanosaurus skeleton/Yangchuanosaurusskeleton42.jpeg Bambiraptor skeleton
+f1 : 0.4051108840648724
+precision : 0.4242738248539104
+recall : 0.40984974958263776
+accuracy : 0.40984974958263776
+
+Process finished with exit code 0
+
